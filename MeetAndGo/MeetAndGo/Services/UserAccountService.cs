@@ -34,7 +34,7 @@ namespace MeetAndGo.Services
             var entities = entity.ToList();
             return _mapper.Map<IEnumerable<Model.UserAccount>>(entities);
         }
-        public Model.UserAccount Register(UserAccountUpsertRequest request)
+        public override Model.UserAccount Insert(UserAccountUpsertRequest request)
         {
             var entity = _mapper.Map<Database.UserAccount>(request);
             _dbContext.Add(entity);
@@ -75,7 +75,7 @@ namespace MeetAndGo.Services
 
         public async Task<Model.UserAccount> Login(string username, string password)
         {
-            var entity = await _dbContext.UserAccount.FirstOrDefaultAsync(x => x.Username == username);
+            var entity = await _dbContext.UserAccount.Include("UserAccountRole.Role").FirstOrDefaultAsync(x => x.Username == username);
             if (entity == null)
                 return null;
 
@@ -84,7 +84,7 @@ namespace MeetAndGo.Services
             if (hash != entity.PasswordHash)
                 return null;
 
-            return _mapper.Map<Model.UserAccount>(entity);
+            return _mapper.Map<Model.UserAccount >(entity);
         }
 
         public static string GenerateSalt()

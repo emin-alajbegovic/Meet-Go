@@ -7,6 +7,6 @@ namespace MeetAndGo.Interfaces
     public interface IUserAccountService : ICRUDService<Model.UserAccount, UserAccountSearchObject, UserAccountUpsertRequest, UserAccountUpsertRequest>
     {
         Task<Model.UserAccount> Login(string username, string password);
-        Model.UserAccount Register(UserAccountUpsertRequest request);
+        //Model.UserAccount Register(UserAccountUpsertRequest request);
     }
-}
+} 

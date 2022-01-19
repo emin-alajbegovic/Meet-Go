@@ -8,6 +8,7 @@ namespace MeetAndGo.Database
         public UserAccount()
         {
             User = new HashSet<User>();
+            UserAccountRole = new HashSet<UserAccountRole>();
         }
 
         public int UserAccountId { get; set; }
@@ -18,5 +19,6 @@ namespace MeetAndGo.Database
         public string PasswordSalt { get; set; }
 
         public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<UserAccountRole> UserAccountRole { get; set; }
     }
 }

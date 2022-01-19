@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace MeetAndGo.Model
 {
@@ -9,6 +11,8 @@ namespace MeetAndGo.Model
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string Username { get; set; }
+        [Browsable(false)]
+        public virtual ICollection<UserAccountRole> UserAccountRole { get; set; }
 
     }
 }

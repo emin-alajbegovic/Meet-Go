@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MeetAndGo.Database;
 using MeetAndGo.Interfaces;
-using MeetAndGo.Model;
 using MeetAndGo.Model.Requests;
 using MeetAndGo.Model.SearchObject;
 using System.Collections.Generic;

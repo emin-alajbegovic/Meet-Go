@@ -8,6 +8,7 @@ namespace MeetAndGo.Database
         public Role()
         {
             User = new HashSet<User>();
+            UserAccountRole = new HashSet<UserAccountRole>();
         }
 
         public int RoleId { get; set; }
@@ -15,5 +16,6 @@ namespace MeetAndGo.Database
         public string Description { get; set; }
 
         public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<UserAccountRole> UserAccountRole { get; set; }
     }
 }

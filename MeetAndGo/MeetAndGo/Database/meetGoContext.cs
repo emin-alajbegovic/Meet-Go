@@ -31,6 +31,7 @@ namespace MeetAndGo.Database
         public virtual DbSet<TypeOfOffice> TypeOfOffice { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserAccount> UserAccount { get; set; }
+        public virtual DbSet<UserAccountRole> UserAccountRole { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -345,6 +346,21 @@ namespace MeetAndGo.Database
                 entity.Property(e => e.Username)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<UserAccountRole>(entity =>
+            {
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.UserAccountRole)
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Fk_Role_UserAccountRole_RoleId");
+
+                entity.HasOne(d => d.UserAccount)
+                    .WithMany(p => p.UserAccountRole)
+                    .HasForeignKey(d => d.UserAccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Fk_UserAccount_UserAccountRole_UserAccountId");
             });
 
             OnModelCreatingPartial(modelBuilder);

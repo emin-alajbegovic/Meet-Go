@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeetAndGo.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,12 +17,14 @@ namespace MeetAndGo.WinUI.Login
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            ApiService.UserName = txt_Username.Text;
+            ApiService.Password = txt_Password.Text;
             try
             {
                 var result = await _serviceUserAccounts.GetAll<List<Model.UserAccount>>();
                 Model.UserAccount user = result?.FirstOrDefault(x => x.Username == txt_Username.Text);
-                //var uloga = zaposlenik.ZaposleniciUloges.Where(x => x.ZaposlenikId == zaposlenik.Id).FirstOrDefault();
-                if (user != null /*&& uloga.Uloge.Naziv == Uloge.Administrator.ToString()*/)
+                //var role = user.UserAccountRole.Where(x => x.UserAccountId == user.UserAccountId).FirstOrDefault();
+                if (user != null /*&& role.Role.Name==Role.Admin.ToString()*/)
                 {
                     this.Hide();
                     MDIHome frm = new MDIHome();
@@ -38,7 +41,7 @@ namespace MeetAndGo.WinUI.Login
             }
             catch
             {
-                MessageBox.Show("Pogrešan username ili password");
+                MessageBox.Show("Wrong username or password");
             }
         }
 

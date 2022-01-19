@@ -16,6 +16,7 @@ namespace MeetAndGo.Mappers
             CreateMap<Database.TypeOfBuilding, Model.TypeOfBuilding>();
             CreateMap<Database.TypeOfOffice, Model.TypeOfOffice>();
             CreateMap<Database.UserAccount, Model.UserAccount>();
+            CreateMap<Database.UserAccountRole, Model.UserAccountRole>();
 
             CreateMap<OfficeUpsertRequest, Database.Office>();
             CreateMap<BuildingUpsertRequest, Database.Office>();
