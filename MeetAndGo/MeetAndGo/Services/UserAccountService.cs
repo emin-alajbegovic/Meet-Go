@@ -84,7 +84,7 @@ namespace MeetAndGo.Services
             if (hash != entity.PasswordHash)
                 return null;
 
-            return _mapper.Map<Model.UserAccount >(entity);
+            return _mapper.Map<Model.UserAccount>(entity);
         }
 
         public static string GenerateSalt()

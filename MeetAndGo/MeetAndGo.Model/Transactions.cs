@@ -2,7 +2,7 @@
 
 namespace MeetAndGo.Model
 {
-    public class Transactions
+    public partial class Transactions
     {
         public int TransactionId { get; set; }
         public DateTime Date { get; set; }

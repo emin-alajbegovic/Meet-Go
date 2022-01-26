@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-
-namespace MeetAndGo.Model
+﻿namespace MeetAndGo.Model
 {
     public partial class Building
     {

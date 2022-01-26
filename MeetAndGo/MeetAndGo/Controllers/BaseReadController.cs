@@ -1,9 +1,11 @@
 ﻿using MeetAndGo.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace MeetAndGo.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BaseReadController<T, TSearch> : ControllerBase where T : class where TSearch : class

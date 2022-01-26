@@ -7,16 +7,27 @@ namespace MeetAndGo.Mappers
     {
         public AutoMapping()
         {
-            CreateMap<Database.User, Model.User>();
-            CreateMap<Database.Building, Model.Building>();
-            CreateMap<Database.Office, Model.Office>();
-            CreateMap<Database.Role, Model.Role>();
+            CreateMap<Database.Country, Model.Country>();
             CreateMap<Database.City, Model.City>();
-            CreateMap<Database.Transactions, Model.Transactions>();
-            CreateMap<Database.TypeOfBuilding, Model.TypeOfBuilding>();
+
+            CreateMap<Database.Office, Model.Office>();
+            CreateMap<Database.RentedOffice, Model.RentedOffice>();
             CreateMap<Database.TypeOfOffice, Model.TypeOfOffice>();
+            CreateMap<Database.CanceledOffice, Model.CanceledOffice>();
+            CreateMap<Database.OfficeReview, Model.OfficeReview>();
+
+            CreateMap<Database.Transactions, Model.Transactions>();
+
+            CreateMap<Database.Building, Model.Building>();
+            CreateMap<Database.RentedBuilding, Model.RentedBuilding>();
+            CreateMap<Database.TypeOfBuilding, Model.TypeOfBuilding>();
+            CreateMap<Database.CanceledBuilding, Model.CanceledBuilding>();
+            CreateMap<Database.BuildingReview, Model.BuildingReview>();
+
+            CreateMap<Database.User, Model.User>();
             CreateMap<Database.UserAccount, Model.UserAccount>();
             CreateMap<Database.UserAccountRole, Model.UserAccountRole>();
+            CreateMap<Database.Role, Model.Role>();
 
             CreateMap<OfficeUpsertRequest, Database.Office>();
             CreateMap<BuildingUpsertRequest, Database.Office>();

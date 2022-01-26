@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace MeetAndGo.Model
 {
-    public class UserAccount
+    public partial class UserAccount
     {
         public int UserAccountId { get; set; }
         public DateTime DateCreated { get; set; }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MeetAndGo.Database
+namespace MeetAndGo.Model
 {
     public partial class RentedOffice
     {
@@ -10,8 +10,5 @@ namespace MeetAndGo.Database
         public DateTime BeginRentalDate { get; set; }
         public DateTime EndRentalDate { get; set; }
         public bool Rented { get; set; }
-
-        public virtual Office Office { get; set; }
-        public virtual User User { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MeetAndGo.Model
 {
-    public class City
+    public partial class City
     {
         public int CityId { get; set; }
         public string Name { get; set; }

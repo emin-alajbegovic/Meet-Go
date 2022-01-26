@@ -8,7 +8,6 @@ namespace MeetAndGo.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class OfficeController : BaseCRUDController<Model.Office, OfficeSearchObject, OfficeUpsertRequest, OfficeUpsertRequest>
     {
         public OfficeController(IOfficeService officeService)

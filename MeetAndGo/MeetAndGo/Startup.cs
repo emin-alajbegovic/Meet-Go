@@ -59,11 +59,18 @@ namespace MeetAndGo
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IReadService<Model.Role, object>, BaseReadService<Model.Role, Database.Role, object>>();
+            services.AddScoped<IReadService<Model.UserAccountRole, object>, BaseReadService<Model.UserAccountRole, Database.UserAccountRole, object>>();
             services.AddScoped<IReadService<Model.City, object>, BaseReadService<Model.City, Database.City, object>>();
+            services.AddScoped<IReadService<Model.Country, object>, BaseReadService<Model.Country, Database.Country, object>>();
             services.AddScoped<IReadService<Model.Transactions, object>, BaseReadService<Model.Transactions, Database.Transactions, object>>();
-            services.AddScoped<IReadService<Model.TypeOfOffice, object>, BaseReadService<Model.TypeOfOffice, Database.TypeOfOffice, object>>();
             services.AddScoped<IReadService<Model.TypeOfBuilding, object>, BaseReadService<Model.TypeOfBuilding, Database.TypeOfBuilding, object>>();
-
+            services.AddScoped<IReadService<Model.RentedBuilding, object>, BaseReadService<Model.RentedBuilding, Database.RentedBuilding, object>>();
+            services.AddScoped<IReadService<Model.CanceledBuilding, object>, BaseReadService<Model.CanceledBuilding, Database.CanceledBuilding, object>>();
+            services.AddScoped<IReadService<Model.BuildingReview, object>, BaseReadService<Model.BuildingReview, Database.BuildingReview, object>>();
+            services.AddScoped<IReadService<Model.TypeOfOffice, object>, BaseReadService<Model.TypeOfOffice, Database.TypeOfOffice, object>>();
+            services.AddScoped<IReadService<Model.RentedOffice, object>, BaseReadService<Model.RentedOffice, Database.RentedOffice, object>>();
+            services.AddScoped<IReadService<Model.CanceledOffice, object>, BaseReadService<Model.CanceledOffice, Database.CanceledOffice, object>>();
+            services.AddScoped<IReadService<Model.OfficeReview, object>, BaseReadService<Model.OfficeReview, Database.OfficeReview, object>>();
 
             services.AddScoped<IBuildingService, BuildingService>();
             services.AddScoped<IUserService, UserService>();

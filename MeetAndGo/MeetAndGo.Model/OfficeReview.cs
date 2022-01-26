@@ -1,4 +1,4 @@
-﻿namespace MeetAndGo.Database
+﻿namespace MeetAndGo.Model
 {
     public partial class OfficeReview
     {
@@ -7,7 +7,5 @@
         public int OfficeId { get; set; }
         public int Mark { get; set; }
 
-        public virtual Office Office { get; set; }
-        public virtual User User { get; set; }
     }
 }

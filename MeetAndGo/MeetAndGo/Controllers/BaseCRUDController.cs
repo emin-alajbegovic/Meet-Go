@@ -1,4 +1,5 @@
 ﻿using MeetAndGo.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeetAndGo.Controllers
@@ -24,6 +25,7 @@ namespace MeetAndGo.Controllers
             return _crudService.Update(id, request);
         }
 
+        //[Authorize(Roles = "SuperAdmin")]
         [HttpDelete("{id}")]
         public T Delete(int id)
         {
