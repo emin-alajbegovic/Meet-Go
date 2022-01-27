@@ -10,6 +10,12 @@ namespace MeetAndGo.WinUI.Login
     public partial class frmLogin : Form
     {
         ApiService _serviceUserAccounts = new ApiService("UserAccount");
+
+        enum Role
+        {
+            Admin,
+            SuperAdmin,
+        }
         public frmLogin()
         {
             InitializeComponent();
@@ -23,18 +29,18 @@ namespace MeetAndGo.WinUI.Login
             {
                 var result = await _serviceUserAccounts.GetAll<List<Model.UserAccount>>();
                 Model.UserAccount user = result?.FirstOrDefault(x => x.Username == txt_Username.Text);
-                //var role = user.UserAccountRole.Where(x => x.UserAccountId == user.UserAccountId).FirstOrDefault();
-                if (user != null /*&& role.Role.Name==Role.Admin.ToString()*/)
+                var role = user.UserAccountRole.Where(x => x.UserAccountId == user.UserAccountId).FirstOrDefault();
+                if (user != null && role.Role.Name == Role.Admin.ToString())
                 {
                     this.Hide();
                     MDIHome frm = new MDIHome();
                     frm.Owner = this;
                     frm.Show();
                 }
-                //if (user != null /*&& uloga.Uloge.Naziv == Uloge.SuperAdmin.ToString()*/)
+                //if (user != null && role.Role.Name == Role.SuperAdmin.ToString())
                 //{
                 //    this.Hide();
-                //    MDIParentSuperAdmin frm = new MDIParentSuperAdmin(zaposlenik);
+                //    MDIHomeSuperAdmin frm = new MDIHomeSuperAdmin(user);
                 //    frm.Owner = this;
                 //    frm.Show();
                 //}

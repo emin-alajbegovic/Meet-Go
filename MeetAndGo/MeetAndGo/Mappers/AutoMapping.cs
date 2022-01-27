@@ -30,7 +30,7 @@ namespace MeetAndGo.Mappers
             CreateMap<Database.Role, Model.Role>();
 
             CreateMap<OfficeUpsertRequest, Database.Office>();
-            CreateMap<BuildingUpsertRequest, Database.Office>();
+            CreateMap<BuildingUpsertRequest, Database.Building>();
             CreateMap<UserUpsertRequest, Database.User>();
             CreateMap<UserAccountUpsertRequest, Database.UserAccount>();
         }

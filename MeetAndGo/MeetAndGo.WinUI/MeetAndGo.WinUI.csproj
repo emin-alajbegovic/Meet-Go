@@ -68,12 +68,6 @@
     <Compile Include="Building\frmAddBuilding.Designer.cs">
       <DependentUpon>frmAddBuilding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +79,12 @@
     </Compile>
     <Compile Include="MDIHome.Designer.cs">
       <DependentUpon>MDIHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIHomeSuperAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIHomeSuperAdmin.Designer.cs">
+      <DependentUpon>MDIHomeSuperAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Office\frmAddOffice.cs">
       <SubType>Form</SubType>
@@ -115,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDIHome.resx">
       <DependentUpon>MDIHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIHomeSuperAdmin.resx">
+      <DependentUpon>MDIHomeSuperAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Office\frmAddOffice.resx">
       <DependentUpon>frmAddOffice.cs</DependentUpon>

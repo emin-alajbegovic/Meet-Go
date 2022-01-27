@@ -1,7 +1,7 @@
 ﻿
 namespace MeetAndGo.WinUI
 {
-    partial class Form1
+    partial class MDIHomeSuperAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,19 @@ namespace MeetAndGo.WinUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MDIHomeSuperAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(994, 595);
+            this.Name = "MDIHomeSuperAdmin";
+            this.Text = "MDIHomeSuperAdmin";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

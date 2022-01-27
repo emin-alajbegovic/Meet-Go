@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MeetAndGo.WinUI
 {
-    public partial class Form1 : Form
+    public partial class MDIHomeSuperAdmin : Form
     {
-        public Form1()
+        public MDIHomeSuperAdmin()
         {
             InitializeComponent();
         }
