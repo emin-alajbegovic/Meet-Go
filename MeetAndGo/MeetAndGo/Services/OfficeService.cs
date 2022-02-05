@@ -23,7 +23,7 @@ namespace MeetAndGo.Services
 
             if (!string.IsNullOrWhiteSpace(search?.Name))
             {
-                entity = entity.Where(x => x.Name.Contains(search.Name));
+                entity = entity.Where(x => x.Name.ToLower().Contains(search.Name));
             }
 
             if (search.TypeOfOfficeId.HasValue)

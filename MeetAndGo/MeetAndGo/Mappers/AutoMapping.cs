@@ -24,7 +24,8 @@ namespace MeetAndGo.Mappers
             CreateMap<Database.CanceledBuilding, Model.CanceledBuilding>();
             CreateMap<Database.BuildingReview, Model.BuildingReview>();
 
-            CreateMap<Database.User, Model.User>();
+            CreateMap<Database.User, Model.User>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.UserAccount.Email));
             CreateMap<Database.UserAccount, Model.UserAccount>();
             CreateMap<Database.UserAccountRole, Model.UserAccountRole>();
             CreateMap<Database.Role, Model.Role>();

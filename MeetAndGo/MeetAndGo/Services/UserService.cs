@@ -3,6 +3,7 @@ using MeetAndGo.Database;
 using MeetAndGo.Interfaces;
 using MeetAndGo.Model.Requests;
 using MeetAndGo.Model.SearchObject;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,7 +31,7 @@ namespace MeetAndGo.Services
                 entity = entity.Where(x => x.RoleId == search.RoleId);
             }
 
-            var entities = entity.ToList();
+            var entities = entity.Include(x => x.UserAccount).ToList();
             return _mapper.Map<IEnumerable<Model.User>>(entities);
         }
     }

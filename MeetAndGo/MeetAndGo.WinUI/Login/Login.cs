@@ -37,13 +37,13 @@ namespace MeetAndGo.WinUI.Login
                     frm.Owner = this;
                     frm.Show();
                 }
-                //if (user != null && role.Role.Name == Role.SuperAdmin.ToString())
-                //{
-                //    this.Hide();
-                //    MDIHomeSuperAdmin frm = new MDIHomeSuperAdmin(user);
-                //    frm.Owner = this;
-                //    frm.Show();
-                //}
+                if (user != null && role.Role.Name == Role.SuperAdmin.ToString())
+                {
+                    this.Hide();
+                    MDIHomeSuperAdmin frm = new MDIHomeSuperAdmin();
+                    frm.Owner = this;
+                    frm.Show();
+                }
             }
             catch
             {

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MeetAndGo.WinUI.User
+namespace MeetAndGo.WinUI.Office
 {
-    public partial class frmUserAddEdit : Form
+    public partial class frmOfficeDetails : Form
     {
-        public frmUserAddEdit()
+        public frmOfficeDetails()
         {
             InitializeComponent();
-        }
-
-        private void txt_Name_Validating(object sender, CancelEventArgs e)
-        {
-            errorProvider.SetError(txt_Name, Properties.Resources.RequiredField);
         }
     }
 }

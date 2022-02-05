@@ -36,15 +36,18 @@ namespace MeetAndGo.WinUI
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.officeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addEditOfficesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewRentedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayBuildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addEditBuildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentedBuildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addOfficeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBuildingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.officesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +73,9 @@ namespace MeetAndGo.WinUI
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem,
             this.officeToolStripMenuItem,
-            this.buildingsToolStripMenuItem});
+            this.buildingsToolStripMenuItem,
+            this.rentedToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1049, 24);
@@ -80,8 +85,7 @@ namespace MeetAndGo.WinUI
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.displayToolStripMenuItem,
-            this.addUserToolStripMenuItem});
+            this.displayToolStripMenuItem});
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.usersToolStripMenuItem.Text = "Users";
@@ -89,47 +93,26 @@ namespace MeetAndGo.WinUI
             // displayToolStripMenuItem
             // 
             this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.displayToolStripMenuItem.Text = "Display Users";
             this.displayToolStripMenuItem.Click += new System.EventHandler(this.displayToolStripMenuItem_Click);
-            // 
-            // addUserToolStripMenuItem
-            // 
-            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addUserToolStripMenuItem.Text = "Add / Edit User";
             // 
             // officeToolStripMenuItem
             // 
             this.officeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayToolStripMenuItem1,
-            this.addEditOfficesToolStripMenuItem,
+            this.addOfficeToolStripMenuItem,
             this.viewRentedToolStripMenuItem});
             this.officeToolStripMenuItem.Name = "officeToolStripMenuItem";
             this.officeToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.officeToolStripMenuItem.Text = "Offices";
-            // 
-            // buildingsToolStripMenuItem
-            // 
-            this.buildingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.displayBuildingsToolStripMenuItem,
-            this.addEditBuildingsToolStripMenuItem,
-            this.rentedBuildingsToolStripMenuItem});
-            this.buildingsToolStripMenuItem.Name = "buildingsToolStripMenuItem";
-            this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.buildingsToolStripMenuItem.Text = "Buildings";
             // 
             // displayToolStripMenuItem1
             // 
             this.displayToolStripMenuItem1.Name = "displayToolStripMenuItem1";
             this.displayToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.displayToolStripMenuItem1.Text = "Display Offices";
-            // 
-            // addEditOfficesToolStripMenuItem
-            // 
-            this.addEditOfficesToolStripMenuItem.Name = "addEditOfficesToolStripMenuItem";
-            this.addEditOfficesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addEditOfficesToolStripMenuItem.Text = "Add/Edit Offices";
+            this.displayToolStripMenuItem1.Click += new System.EventHandler(this.displayToolStripMenuItem1_Click);
             // 
             // viewRentedToolStripMenuItem
             // 
@@ -137,23 +120,68 @@ namespace MeetAndGo.WinUI
             this.viewRentedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewRentedToolStripMenuItem.Text = "Rented Offices";
             // 
+            // buildingsToolStripMenuItem
+            // 
+            this.buildingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.displayBuildingsToolStripMenuItem,
+            this.addBuildingToolStripMenuItem,
+            this.rentedBuildingsToolStripMenuItem});
+            this.buildingsToolStripMenuItem.Name = "buildingsToolStripMenuItem";
+            this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.buildingsToolStripMenuItem.Text = "Buildings";
+            // 
             // displayBuildingsToolStripMenuItem
             // 
             this.displayBuildingsToolStripMenuItem.Name = "displayBuildingsToolStripMenuItem";
             this.displayBuildingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayBuildingsToolStripMenuItem.Text = "Display Buildings";
-            // 
-            // addEditBuildingsToolStripMenuItem
-            // 
-            this.addEditBuildingsToolStripMenuItem.Name = "addEditBuildingsToolStripMenuItem";
-            this.addEditBuildingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addEditBuildingsToolStripMenuItem.Text = "Add/Edit Buildings";
+            this.displayBuildingsToolStripMenuItem.Click += new System.EventHandler(this.displayBuildingsToolStripMenuItem_Click);
             // 
             // rentedBuildingsToolStripMenuItem
             // 
             this.rentedBuildingsToolStripMenuItem.Name = "rentedBuildingsToolStripMenuItem";
             this.rentedBuildingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rentedBuildingsToolStripMenuItem.Text = "Rented Buildings";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // addOfficeToolStripMenuItem
+            // 
+            this.addOfficeToolStripMenuItem.Name = "addOfficeToolStripMenuItem";
+            this.addOfficeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addOfficeToolStripMenuItem.Text = "Add Office";
+            // 
+            // addBuildingToolStripMenuItem
+            // 
+            this.addBuildingToolStripMenuItem.Name = "addBuildingToolStripMenuItem";
+            this.addBuildingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBuildingToolStripMenuItem.Text = "Add Building";
+            // 
+            // rentedToolStripMenuItem
+            // 
+            this.rentedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buildingsToolStripMenuItem1,
+            this.officesToolStripMenuItem});
+            this.rentedToolStripMenuItem.Name = "rentedToolStripMenuItem";
+            this.rentedToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.rentedToolStripMenuItem.Text = "Rented";
+            // 
+            // buildingsToolStripMenuItem1
+            // 
+            this.buildingsToolStripMenuItem1.Name = "buildingsToolStripMenuItem1";
+            this.buildingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.buildingsToolStripMenuItem1.Text = "Buildings";
+            // 
+            // officesToolStripMenuItem
+            // 
+            this.officesToolStripMenuItem.Name = "officesToolStripMenuItem";
+            this.officesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.officesToolStripMenuItem.Text = "Offices";
             // 
             // MDIHome
             // 
@@ -182,15 +210,18 @@ namespace MeetAndGo.WinUI
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem officeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addEditOfficesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewRentedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buildingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayBuildingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addEditBuildingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentedBuildingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addOfficeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBuildingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildingsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem officesToolStripMenuItem;
     }
 }
 

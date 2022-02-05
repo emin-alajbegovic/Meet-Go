@@ -10,9 +10,9 @@
         public decimal Price { get; set; }
         public bool Rented { get; set; }
         public int NumberOfFloors { get; set; }
-        public int CityId { get; set; }
-        public int TypeOfOfficeId { get; set; }
-        public bool IsDeleted { get; set; }
+        //public int CityId { get; set; }
+        //public int TypeOfOfficeId { get; set; }
+        //public bool IsDeleted { get; set; }
         public bool Parking { get; set; }
         public bool Cameras { get; set; }
     }

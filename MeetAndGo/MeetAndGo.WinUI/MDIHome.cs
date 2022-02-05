@@ -1,12 +1,7 @@
-﻿using MeetAndGo.WinUI.User;
+﻿using MeetAndGo.WinUI.Building;
+using MeetAndGo.WinUI.Office;
+using MeetAndGo.WinUI.User;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MeetAndGo.WinUI
@@ -108,6 +103,27 @@ namespace MeetAndGo.WinUI
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDisplayUser frm = new frmDisplayUser();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void displayBuildingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDisplayBuilding frm = new frmDisplayBuilding();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void displayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmDisplayOffice frm = new frmDisplayOffice();
 
             frm.MdiParent = this;
             frm.Show();
