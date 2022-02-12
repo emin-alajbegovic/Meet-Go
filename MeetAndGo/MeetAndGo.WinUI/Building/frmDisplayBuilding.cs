@@ -31,7 +31,10 @@ namespace MeetAndGo.WinUI.Building
 
         private void dgvBuildings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var building = dgvBuildings.SelectedRows[0].DataBoundItem as Model.Building;
 
+            frmBuildingDetails frm = new frmBuildingDetails(building as Model.Building);
+            frm.ShowDialog();
         }
     }
 }

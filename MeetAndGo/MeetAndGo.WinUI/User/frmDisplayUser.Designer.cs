@@ -32,7 +32,6 @@ namespace MeetAndGo.WinUI.User
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbRented = new System.Windows.Forms.ComboBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.btnDisplay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@ namespace MeetAndGo.WinUI.User
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmbRented);
             this.groupBox2.Controls.Add(this.txt_Name);
             this.groupBox2.Controls.Add(this.btnDisplay);
             this.groupBox2.Controls.Add(this.label1);
@@ -78,25 +76,16 @@ namespace MeetAndGo.WinUI.User
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
             // 
-            // cmbRented
-            // 
-            this.cmbRented.FormattingEnabled = true;
-            this.cmbRented.Location = new System.Drawing.Point(217, 53);
-            this.cmbRented.Name = "cmbRented";
-            this.cmbRented.Size = new System.Drawing.Size(152, 21);
-            this.cmbRented.TabIndex = 3;
-            this.cmbRented.SelectedIndexChanged += new System.EventHandler(this.cmbRented_SelectedIndexChanged);
-            // 
             // txt_Name
             // 
             this.txt_Name.Location = new System.Drawing.Point(6, 53);
             this.txt_Name.Name = "txt_Name";
-            this.txt_Name.Size = new System.Drawing.Size(156, 20);
+            this.txt_Name.Size = new System.Drawing.Size(176, 20);
             this.txt_Name.TabIndex = 2;
             // 
             // btnDisplay
             // 
-            this.btnDisplay.Location = new System.Drawing.Point(584, 50);
+            this.btnDisplay.Location = new System.Drawing.Point(602, 50);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(122, 23);
             this.btnDisplay.TabIndex = 1;
@@ -139,6 +128,5 @@ namespace MeetAndGo.WinUI.User
         private System.Windows.Forms.TextBox txt_Name;
         private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbRented;
     }
 }

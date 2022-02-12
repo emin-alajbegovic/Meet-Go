@@ -30,7 +30,6 @@ namespace MeetAndGo.WinUI.Building
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbRented = new System.Windows.Forms.ComboBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.btnDisplay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@ namespace MeetAndGo.WinUI.Building
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmbRented);
             this.groupBox2.Controls.Add(this.txt_Name);
             this.groupBox2.Controls.Add(this.btnDisplay);
             this.groupBox2.Controls.Add(this.label1);
@@ -53,14 +51,6 @@ namespace MeetAndGo.WinUI.Building
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
-            // 
-            // cmbRented
-            // 
-            this.cmbRented.FormattingEnabled = true;
-            this.cmbRented.Location = new System.Drawing.Point(217, 53);
-            this.cmbRented.Name = "cmbRented";
-            this.cmbRented.Size = new System.Drawing.Size(152, 21);
-            this.cmbRented.TabIndex = 3;
             // 
             // txt_Name
             // 
@@ -133,7 +123,6 @@ namespace MeetAndGo.WinUI.Building
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmbRented;
         private System.Windows.Forms.TextBox txt_Name;
         private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.Label label1;

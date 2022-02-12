@@ -29,12 +29,7 @@ namespace MeetAndGo.WinUI.User
             dgvUsers.DataSource = await _serviceUsers.GetAll<List<Model.User>>();
         }
 
-        private async void cmbRented_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var item = dgvUsers.SelectedRows[0].DataBoundItem as Model.User;
 

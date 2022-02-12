@@ -30,7 +30,10 @@ namespace MeetAndGo.WinUI.Office
 
         private void dgvOffices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var office = dgvOffices.SelectedRows[0].DataBoundItem as Model.Office;
 
+            frmOfficeDetails frm = new frmOfficeDetails(office as Model.Office);
+            frm.ShowDialog();
         }
     }
 }

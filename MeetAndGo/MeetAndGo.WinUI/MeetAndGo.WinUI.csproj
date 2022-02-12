@@ -134,6 +134,9 @@
     <EmbeddedResource Include="Building\frmAddBuilding.resx">
       <DependentUpon>frmAddBuilding.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Building\frmBuildingDetails.resx">
+      <DependentUpon>frmBuildingDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Building\frmDisplayBuilding.resx">
       <DependentUpon>frmDisplayBuilding.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Office\frmDisplayOffice.resx">
       <DependentUpon>frmDisplayOffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmOfficeDetails.resx">
+      <DependentUpon>frmOfficeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

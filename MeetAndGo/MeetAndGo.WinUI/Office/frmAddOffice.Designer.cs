@@ -164,7 +164,7 @@ namespace MeetAndGo.WinUI.Office
             this.Controls.Add(this.btn_LoadImage);
             this.Controls.Add(this.pbx_Picture);
             this.Name = "frmAddOffice";
-            this.Text = "frmAddOffice";
+            this.Text = "frmAddOfice";
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

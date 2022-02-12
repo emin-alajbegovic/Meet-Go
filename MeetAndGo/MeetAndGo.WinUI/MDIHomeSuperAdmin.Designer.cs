@@ -31,21 +31,31 @@ namespace MeetAndGo.WinUI
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(994, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -55,12 +65,20 @@ namespace MeetAndGo.WinUI
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // logoutToolStripMenuItem
+            // userToolStripMenuItem
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUserToolStripMenuItem});
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // addUserToolStripMenuItem
+            // 
+            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addUserToolStripMenuItem.Text = "Add user";
+            this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
             // MDIHomeSuperAdmin
             // 
@@ -85,5 +103,7 @@ namespace MeetAndGo.WinUI
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addUserToolStripMenuItem;
     }
 }
