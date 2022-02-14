@@ -128,5 +128,21 @@ namespace MeetAndGo.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void addOfficeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddOffice frm = new frmAddOffice();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void addBuildingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddBuilding frm = new frmAddBuilding();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

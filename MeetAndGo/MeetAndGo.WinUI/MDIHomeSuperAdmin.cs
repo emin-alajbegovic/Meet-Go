@@ -17,7 +17,7 @@ namespace MeetAndGo.WinUI
 
         private void addUserToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmUserDetails frm = new frmUserDetails();
+            frmAddUser frm = new frmAddUser();
 
             frm.ShowDialog();
         }

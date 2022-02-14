@@ -1,6 +1,7 @@
 ﻿using MeetAndGo.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace MeetAndGo.WinUI.User
     {
         ApiService _serviceUsers = new ApiService("User");
         ApiService _serviceRoles = new ApiService("Role");
+        ApiService _serviceUserAccounts = new ApiService("UserAccount");
 
         private Model.User _user;
         public frmUserDetails(Model.User user = null)
@@ -21,6 +23,16 @@ namespace MeetAndGo.WinUI.User
         private async void frmUserDetails_Load(object sender, EventArgs e)
         {
             await LoadRoles();
+
+            var result = await _serviceUserAccounts.GetAll<List<Model.UserAccount>>();
+            Model.UserAccount user = result?.FirstOrDefault(x => x.UserAccountId == _user.UserAccountId);
+            var role = user.UserAccountRole.Where(x => x.UserAccountId == _user.UserAccountId).FirstOrDefault();
+
+            if (role != null)
+            {
+                clbRole.SetItemChecked(role.Role.RoleId, true);
+            }
+
             if (_user != null)
             {
                 txt_FirstName.Text = _user.FirstName;
@@ -33,8 +45,7 @@ namespace MeetAndGo.WinUI.User
         private async Task LoadRoles()
         {
             var roles = await _serviceRoles.GetAll<List<Role>>();
-            clbRole.DataSource=roles;
-            clbRole.DisplayMember = "Name";
+            LoadDataHelper.LoadDataInCheckedListBox(clbRole, roles, "RoleId");
         }
     }
 }

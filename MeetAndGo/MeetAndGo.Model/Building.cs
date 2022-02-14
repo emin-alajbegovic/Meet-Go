@@ -6,13 +6,13 @@
         {
         }
 
-        public int BuildingId { get; set; }
+        //public int BuildingId { get; set; }
         public string Name { get; set; }
         public string Adress { get; set; }
         public string Description { get; set; }
-        //public string Area { get; set; }
+        public string Area { get; set; }
         //public decimal Price { get; set; }
-        //public string Picture { get; set; }
+        public string Picture { get; set; }
         //public bool Rented { get; set; }
         //public int NumberOfFloors { get; set; }
         //public int CityId { get; set; }

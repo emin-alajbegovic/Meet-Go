@@ -80,6 +80,7 @@
     <Compile Include="Building\frmDisplayBuilding.Designer.cs">
       <DependentUpon>frmDisplayBuilding.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadDataHelper.cs" />
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +117,15 @@
     <Compile Include="Office\frmOfficeDetails.Designer.cs">
       <DependentUpon>frmOfficeDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PictureService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmDisplayUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +176,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\frmDisplayUser.resx">
       <DependentUpon>frmDisplayUser.cs</DependentUpon>
     </EmbeddedResource>
