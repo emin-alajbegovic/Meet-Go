@@ -8,7 +8,7 @@ namespace MeetAndGo.WinUI.Office
     {
         ApiService _serviceCities = new ApiService("City");
         ApiService _serviceCountries = new ApiService("Country");
-        ApiService _serviceTypeOfBuildings = new ApiService("TypeOfBuilding");
+        ApiService _serviceTypeOfOffices = new ApiService("TypeOfOffice");
 
 
         public frmAddOffice()
@@ -19,7 +19,7 @@ namespace MeetAndGo.WinUI.Office
         {
             await LoadCities();
             await LoadCountries();
-            await LoadTypeOfBuildings();
+            await LoadTypeOfOffice();
         }
 
         private async Task LoadCities()
@@ -32,10 +32,10 @@ namespace MeetAndGo.WinUI.Office
             var countries = await _serviceCountries.GetAll<List<Model.Country>>();
             LoadDataHelper.LoadDataInComboBox(cmb_Countries, countries, "CountryId");
         }
-        private async Task LoadTypeOfBuildings()
+        private async Task LoadTypeOfOffice()
         {
-            var typeOfBuildings = await _serviceTypeOfBuildings.GetAll<List<Model.TypeOfBuilding>>();
-            LoadDataHelper.LoadDataInComboBox(cmb_TypeOfBuilding, typeOfBuildings, "TypeOfBuildingId");
+            var typeOfOffice = await _serviceTypeOfOffices.GetAll<List<Model.TypeOfOffice>>();
+            LoadDataHelper.LoadDataInComboBox(cmb_TypeOfOffice, typeOfOffice, "TypeOfOfficeId");
         }
 
     }

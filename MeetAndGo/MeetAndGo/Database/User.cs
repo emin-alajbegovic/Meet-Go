@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MeetAndGo.Database
 {
@@ -19,10 +20,8 @@ namespace MeetAndGo.Database
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public int RoleId { get; set; }
         public int UserAccountId { get; set; }
 
-        public virtual Role Role { get; set; }
         public virtual UserAccount UserAccount { get; set; }
         public virtual ICollection<BuildingReview> BuildingReview { get; set; }
         public virtual ICollection<CanceledBuilding> CanceledBuilding { get; set; }

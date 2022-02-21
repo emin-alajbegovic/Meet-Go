@@ -34,7 +34,7 @@ namespace MeetAndGo.WinUI
 
         public async Task<T> GetById<T>(object id)
         {
-            var url = $"{endpoint}/{_route}";
+            var url = $"{endpoint}/{_route}/{id}";
             var result = await url.WithBasicAuth(UserName, Password).GetJsonAsync<T>();
 
             return result;
@@ -60,6 +60,14 @@ namespace MeetAndGo.WinUI
         {
             var url = $"{endpoint}/{_route}/{id}";
             var result = await url.WithBasicAuth(UserName, Password).DeleteAsync().ReceiveJson<T>();
+
+            return result;
+        }
+
+        public async Task<T> GetUserAccountByUsername<T>(string username)
+        {
+            var url = $"{endpoint}/{_route}/Username/{username}";
+            var result = await url.WithBasicAuth(UserName, Password).GetJsonAsync<T>();
 
             return result;
         }

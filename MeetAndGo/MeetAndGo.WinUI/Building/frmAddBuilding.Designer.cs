@@ -29,6 +29,7 @@ namespace MeetAndGo.WinUI.Building
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.cmb_TypeOfBuilding = new System.Windows.Forms.ComboBox();
             this.check_Parking = new System.Windows.Forms.CheckBox();
@@ -56,7 +57,9 @@ namespace MeetAndGo.WinUI.Building
             this.txtSlika = new System.Windows.Forms.TextBox();
             this.btn_LoadImage = new System.Windows.Forms.Button();
             this.pbx_Picture = new System.Windows.Forms.PictureBox();
+            this.errorProv = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -75,6 +78,7 @@ namespace MeetAndGo.WinUI.Building
             this.cmb_TypeOfBuilding.Name = "cmb_TypeOfBuilding";
             this.cmb_TypeOfBuilding.Size = new System.Drawing.Size(219, 21);
             this.cmb_TypeOfBuilding.TabIndex = 80;
+            this.cmb_TypeOfBuilding.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_TypeOfBuilding_Validating);
             // 
             // check_Parking
             // 
@@ -85,6 +89,7 @@ namespace MeetAndGo.WinUI.Building
             this.check_Parking.TabIndex = 79;
             this.check_Parking.Text = "Parking";
             this.check_Parking.UseVisualStyleBackColor = true;
+            this.check_Parking.Validating += new System.ComponentModel.CancelEventHandler(this.check_Parking_Validating);
             // 
             // check_Cameras
             // 
@@ -95,6 +100,7 @@ namespace MeetAndGo.WinUI.Building
             this.check_Cameras.TabIndex = 78;
             this.check_Cameras.Text = "Cameras";
             this.check_Cameras.UseVisualStyleBackColor = true;
+            this.check_Cameras.Validating += new System.ComponentModel.CancelEventHandler(this.check_Cameras_Validating);
             // 
             // check_Security
             // 
@@ -105,6 +111,7 @@ namespace MeetAndGo.WinUI.Building
             this.check_Security.TabIndex = 77;
             this.check_Security.Text = "Security";
             this.check_Security.UseVisualStyleBackColor = true;
+            this.check_Security.Validating += new System.ComponentModel.CancelEventHandler(this.check_Security_Validating);
             // 
             // txt_OfficeNumbers
             // 
@@ -112,6 +119,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_OfficeNumbers.Name = "txt_OfficeNumbers";
             this.txt_OfficeNumbers.Size = new System.Drawing.Size(219, 20);
             this.txt_OfficeNumbers.TabIndex = 75;
+            this.txt_OfficeNumbers.Validating += new System.ComponentModel.CancelEventHandler(this.txt_OfficeNumbers_Validating);
             // 
             // label8
             // 
@@ -128,6 +136,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Price.Name = "txt_Price";
             this.txt_Price.Size = new System.Drawing.Size(219, 20);
             this.txt_Price.TabIndex = 72;
+            this.txt_Price.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Price_Validating);
             // 
             // label9
             // 
@@ -144,6 +153,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Floors.Name = "txt_Floors";
             this.txt_Floors.Size = new System.Drawing.Size(219, 20);
             this.txt_Floors.TabIndex = 71;
+            this.txt_Floors.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Floors_Validating);
             // 
             // Floors
             // 
@@ -160,6 +170,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Area.Name = "txt_Area";
             this.txt_Area.Size = new System.Drawing.Size(219, 20);
             this.txt_Area.TabIndex = 69;
+            this.txt_Area.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Area_Validating);
             // 
             // label6
             // 
@@ -176,6 +187,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Description.Name = "txt_Description";
             this.txt_Description.Size = new System.Drawing.Size(219, 20);
             this.txt_Description.TabIndex = 67;
+            this.txt_Description.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Description_Validating);
             // 
             // label5
             // 
@@ -202,6 +214,7 @@ namespace MeetAndGo.WinUI.Building
             this.cmb_Cities.Name = "cmb_Cities";
             this.cmb_Cities.Size = new System.Drawing.Size(219, 21);
             this.cmb_Cities.TabIndex = 65;
+            this.cmb_Cities.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Cities_Validating);
             // 
             // btnSave
             // 
@@ -211,6 +224,7 @@ namespace MeetAndGo.WinUI.Building
             this.btnSave.TabIndex = 59;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label3
             // 
@@ -228,6 +242,7 @@ namespace MeetAndGo.WinUI.Building
             this.cmb_Countries.Name = "cmb_Countries";
             this.cmb_Countries.Size = new System.Drawing.Size(219, 21);
             this.cmb_Countries.TabIndex = 57;
+            this.cmb_Countries.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Countries_Validating);
             // 
             // txt_Adress
             // 
@@ -235,6 +250,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Adress.Name = "txt_Adress";
             this.txt_Adress.Size = new System.Drawing.Size(219, 20);
             this.txt_Adress.TabIndex = 56;
+            this.txt_Adress.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Adress_Validating);
             // 
             // label2
             // 
@@ -251,6 +267,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(219, 20);
             this.txt_Name.TabIndex = 55;
+            this.txt_Name.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Name_Validating);
             // 
             // label1
             // 
@@ -287,6 +304,11 @@ namespace MeetAndGo.WinUI.Building
             this.pbx_Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_Picture.TabIndex = 60;
             this.pbx_Picture.TabStop = false;
+            this.pbx_Picture.Validating += new System.ComponentModel.CancelEventHandler(this.pbx_Picture_Validating);
+            // 
+            // errorProv
+            // 
+            this.errorProv.ContainerControl = this;
             // 
             // frmAddBuilding
             // 
@@ -322,7 +344,9 @@ namespace MeetAndGo.WinUI.Building
             this.Controls.Add(this.pbx_Picture);
             this.Name = "frmAddBuilding";
             this.Text = "frmAddBuilding";
+            this.Load += new System.EventHandler(this.frmAddBuilding_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,5 +381,6 @@ namespace MeetAndGo.WinUI.Building
         private System.Windows.Forms.TextBox txtSlika;
         private System.Windows.Forms.Button btn_LoadImage;
         private System.Windows.Forms.PictureBox pbx_Picture;
+        private System.Windows.Forms.ErrorProvider errorProv;
     }
 }

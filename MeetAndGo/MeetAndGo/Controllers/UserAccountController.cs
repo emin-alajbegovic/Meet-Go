@@ -4,6 +4,7 @@ using MeetAndGo.Model.SearchObject;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MeetAndGo.Controllers
 {
@@ -12,7 +13,7 @@ namespace MeetAndGo.Controllers
     //    public UserAccountController(IUserAccountService userAccountService) : base(userAccountService) { }
     //}
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     public class UserAccountController : ControllerBase
     {
@@ -23,6 +24,12 @@ namespace MeetAndGo.Controllers
         public IEnumerable<Model.UserAccount> Get([FromQuery] UserAccountSearchObject request)
         {
             return _service.Get(request);
+        }
+
+        [HttpGet("Username/{username}")]
+        public async Task<Model.UserAccount> GetByUsername(string username)
+        {
+            return await _service.GetUserAccountByUsername(username);
         }
 
         [HttpGet("{id}")]

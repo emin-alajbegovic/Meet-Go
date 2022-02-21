@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MeetAndGo.Database
 {
@@ -6,7 +7,6 @@ namespace MeetAndGo.Database
     {
         public Role()
         {
-            User = new HashSet<User>();
             UserAccountRole = new HashSet<UserAccountRole>();
         }
 
@@ -14,7 +14,6 @@ namespace MeetAndGo.Database
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public virtual ICollection<User> User { get; set; }
         public virtual ICollection<UserAccountRole> UserAccountRole { get; set; }
     }
 }

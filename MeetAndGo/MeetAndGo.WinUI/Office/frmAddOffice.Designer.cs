@@ -30,7 +30,7 @@ namespace MeetAndGo.WinUI.Office
         private void InitializeComponent()
         {
             this.label12 = new System.Windows.Forms.Label();
-            this.cmb_TypeOfBuilding = new System.Windows.Forms.ComboBox();
+            this.cmb_TypeOfOffice = new System.Windows.Forms.ComboBox();
             this.check_Parking = new System.Windows.Forms.CheckBox();
             this.check_Cameras = new System.Windows.Forms.CheckBox();
             this.check_Security = new System.Windows.Forms.CheckBox();
@@ -68,13 +68,13 @@ namespace MeetAndGo.WinUI.Office
             this.label12.TabIndex = 81;
             this.label12.Text = "Type of Building";
             // 
-            // cmb_TypeOfBuilding
+            // cmb_TypeOfOffice
             // 
-            this.cmb_TypeOfBuilding.FormattingEnabled = true;
-            this.cmb_TypeOfBuilding.Location = new System.Drawing.Point(27, 305);
-            this.cmb_TypeOfBuilding.Name = "cmb_TypeOfBuilding";
-            this.cmb_TypeOfBuilding.Size = new System.Drawing.Size(219, 21);
-            this.cmb_TypeOfBuilding.TabIndex = 80;
+            this.cmb_TypeOfOffice.FormattingEnabled = true;
+            this.cmb_TypeOfOffice.Location = new System.Drawing.Point(27, 305);
+            this.cmb_TypeOfOffice.Name = "cmb_TypeOfOffice";
+            this.cmb_TypeOfOffice.Size = new System.Drawing.Size(219, 21);
+            this.cmb_TypeOfOffice.TabIndex = 80;
             // 
             // check_Parking
             // 
@@ -294,7 +294,7 @@ namespace MeetAndGo.WinUI.Office
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.cmb_TypeOfBuilding);
+            this.Controls.Add(this.cmb_TypeOfOffice);
             this.Controls.Add(this.check_Parking);
             this.Controls.Add(this.check_Cameras);
             this.Controls.Add(this.check_Security);
@@ -332,7 +332,7 @@ namespace MeetAndGo.WinUI.Office
         #endregion
 
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cmb_TypeOfBuilding;
+        private System.Windows.Forms.ComboBox cmb_TypeOfOffice;
         private System.Windows.Forms.CheckBox check_Parking;
         private System.Windows.Forms.CheckBox check_Cameras;
         private System.Windows.Forms.CheckBox check_Security;

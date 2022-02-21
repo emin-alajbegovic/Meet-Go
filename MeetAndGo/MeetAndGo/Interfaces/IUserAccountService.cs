@@ -8,5 +8,7 @@ namespace MeetAndGo.Interfaces
     {
         Task<Model.UserAccount> Login(string username, string password);
         //Model.UserAccount Register(UserAccountUpsertRequest request);
+        Task<Model.UserAccount> GetUserAccountByUsername(string username);
+
     }
 } 

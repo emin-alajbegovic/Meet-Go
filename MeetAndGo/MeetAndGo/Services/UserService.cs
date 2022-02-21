@@ -25,12 +25,7 @@ namespace MeetAndGo.Services
             {
                 entity = entity.Where(x => x.LastName.Contains(search.LastName));
             }
-
-            if (search.RoleId.HasValue)
-            {
-                entity = entity.Where(x => x.RoleId == search.RoleId);
-            }
-
+            
             var entities = entity.Include(x => x.UserAccount).ToList();
             return _mapper.Map<IEnumerable<Model.User>>(entities);
         }

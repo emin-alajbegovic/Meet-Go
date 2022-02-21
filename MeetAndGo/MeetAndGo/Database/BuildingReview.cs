@@ -1,4 +1,7 @@
-﻿namespace MeetAndGo.Database
+﻿using System;
+using System.Collections.Generic;
+
+namespace MeetAndGo.Database
 {
     public partial class BuildingReview
     {

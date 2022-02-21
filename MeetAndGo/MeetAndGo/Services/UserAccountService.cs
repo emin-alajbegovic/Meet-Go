@@ -28,7 +28,7 @@ namespace MeetAndGo.Services
 
             if (search.Email != null)
             {
-                entity = entity.Where(x => x.Email.Contains(search.Email));
+                entity = entity.Where(x => x.Email == search.Email);
             }
 
             var entities = entity.ToList();
@@ -82,6 +82,16 @@ namespace MeetAndGo.Services
             var hash = GenerateHash(entity.PasswordSalt, password);
 
             if (hash != entity.PasswordHash)
+                return null;
+
+            return _mapper.Map<Model.UserAccount>(entity);
+        }
+
+        public async Task<Model.UserAccount> GetUserAccountByUsername(string username)
+        {
+            var entity = await _dbContext.UserAccount.Where(x => x.Username == username).FirstOrDefaultAsync();
+
+            if (entity == null)
                 return null;
 
             return _mapper.Map<Model.UserAccount>(entity);
