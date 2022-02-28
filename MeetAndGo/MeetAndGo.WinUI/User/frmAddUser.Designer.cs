@@ -52,7 +52,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_Password.Location = new System.Drawing.Point(256, 64);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(219, 20);
-            this.txt_Password.TabIndex = 72;
+            this.txt_Password.TabIndex = 5;
             this.txt_Password.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Password_Validating);
             // 
             // label9
@@ -69,7 +69,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_Email.Location = new System.Drawing.Point(256, 25);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(219, 20);
-            this.txt_Email.TabIndex = 71;
+            this.txt_Email.TabIndex = 4;
             this.txt_Email.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Email_Validating);
             // 
             // Floors
@@ -86,7 +86,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_PhoneNumber.Location = new System.Drawing.Point(15, 103);
             this.txt_PhoneNumber.Name = "txt_PhoneNumber";
             this.txt_PhoneNumber.Size = new System.Drawing.Size(219, 20);
-            this.txt_PhoneNumber.TabIndex = 67;
+            this.txt_PhoneNumber.TabIndex = 3;
             this.txt_PhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txt_PhoneNumber_Validating);
             // 
             // label5
@@ -103,7 +103,7 @@ namespace MeetAndGo.WinUI.User
             this.btnSave.Location = new System.Drawing.Point(306, 143);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(169, 35);
-            this.btnSave.TabIndex = 59;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -113,7 +113,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_LastName.Location = new System.Drawing.Point(15, 64);
             this.txt_LastName.Name = "txt_LastName";
             this.txt_LastName.Size = new System.Drawing.Size(219, 20);
-            this.txt_LastName.TabIndex = 56;
+            this.txt_LastName.TabIndex = 2;
             this.txt_LastName.Validating += new System.ComponentModel.CancelEventHandler(this.txt_LastName_Validating);
             // 
             // label2
@@ -130,7 +130,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_FirstName.Location = new System.Drawing.Point(15, 25);
             this.txt_FirstName.Name = "txt_FirstName";
             this.txt_FirstName.Size = new System.Drawing.Size(219, 20);
-            this.txt_FirstName.TabIndex = 55;
+            this.txt_FirstName.TabIndex = 1;
             this.txt_FirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txt_FirstName_Validating);
             // 
             // label1
@@ -147,7 +147,7 @@ namespace MeetAndGo.WinUI.User
             this.txt_Username.Location = new System.Drawing.Point(256, 103);
             this.txt_Username.Name = "txt_Username";
             this.txt_Username.Size = new System.Drawing.Size(219, 20);
-            this.txt_Username.TabIndex = 75;
+            this.txt_Username.TabIndex = 6;
             this.txt_Username.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Username_Validating);
             // 
             // label3

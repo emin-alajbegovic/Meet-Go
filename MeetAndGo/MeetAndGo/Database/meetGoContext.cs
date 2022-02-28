@@ -64,9 +64,7 @@ namespace MeetAndGo.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Picture)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Picture).IsRequired();
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
 
@@ -182,9 +180,7 @@ namespace MeetAndGo.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Picture)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Picture).IsRequired();
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
 

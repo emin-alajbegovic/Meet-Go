@@ -13,7 +13,7 @@ namespace MeetAndGo.Controllers
     //    public UserAccountController(IUserAccountService userAccountService) : base(userAccountService) { }
     //}
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class UserAccountController : ControllerBase
     {

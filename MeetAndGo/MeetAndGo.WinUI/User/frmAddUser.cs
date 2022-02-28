@@ -46,7 +46,10 @@ namespace MeetAndGo.WinUI.User
                     };
 
                     await _serviceUsers.Insert<Model.User>(user);
-                    MessageBox.Show("Uspjesno dodan user");
+                    MessageBox.Show("User successfully added!");
+                    this.Close();
+                    //frmAddUser frm = new frmAddUser();
+                    //frm.Show();
                 }
             }
         }

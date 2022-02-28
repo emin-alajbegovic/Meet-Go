@@ -117,6 +117,7 @@
     <Compile Include="Office\frmOfficeDetails.Designer.cs">
       <DependentUpon>frmOfficeDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenFileDialogHelper.cs" />
     <Compile Include="PictureService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
