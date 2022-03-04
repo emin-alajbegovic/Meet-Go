@@ -59,7 +59,6 @@ namespace MeetAndGo
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IReadService<Model.Role, object>, BaseReadService<Model.Role, Database.Role, object>>();
-            services.AddScoped<IReadService<Model.UserAccountRole, object>, BaseReadService<Model.UserAccountRole, Database.UserAccountRole, object>>();
             services.AddScoped<IReadService<Model.City, object>, BaseReadService<Model.City, Database.City, object>>();
             services.AddScoped<IReadService<Model.Country, object>, BaseReadService<Model.Country, Database.Country, object>>();
             services.AddScoped<IReadService<Model.Transactions, object>, BaseReadService<Model.Transactions, Database.Transactions, object>>();
@@ -72,6 +71,8 @@ namespace MeetAndGo
             services.AddScoped<IReadService<Model.CanceledOffice, object>, BaseReadService<Model.CanceledOffice, Database.CanceledOffice, object>>();
             services.AddScoped<IReadService<Model.OfficeReview, object>, BaseReadService<Model.OfficeReview, Database.OfficeReview, object>>();
 
+
+            services.AddScoped<IUserAccountRoleService, UserAccountRoleService>();
             services.AddScoped<IBuildingService, BuildingService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOfficeService, OfficeService>();

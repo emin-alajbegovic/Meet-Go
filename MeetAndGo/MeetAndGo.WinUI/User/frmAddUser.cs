@@ -5,7 +5,7 @@ namespace MeetAndGo.WinUI.User
 {
     public partial class frmAddUser : Form
     {
-        ApiService _serviceRoles = new ApiService("Role");
+        ApiService _serviceUserAccountRoles = new ApiService("UserAccountRole");
         ApiService _serviceUsers = new ApiService("User");
         ApiService _serviceUserAccounts = new ApiService("UserAccount");
 
@@ -45,11 +45,17 @@ namespace MeetAndGo.WinUI.User
                         UserAccountId = createdUserAccount.UserAccountId
                     };
 
+                    Model.UserAccountRole userAccountRole = new Model.UserAccountRole
+                    {
+                        ChangeDate = DateTime.UtcNow,
+                        UserAccountId = createdUserAccount.UserAccountId,
+                        RoleId = 3
+                    };
+
+                    await _serviceUserAccountRoles.Insert<Model.UserAccountRole>(userAccountRole);
                     await _serviceUsers.Insert<Model.User>(user);
                     MessageBox.Show("User successfully added!");
                     this.Close();
-                    //frmAddUser frm = new frmAddUser();
-                    //frm.Show();
                 }
             }
         }

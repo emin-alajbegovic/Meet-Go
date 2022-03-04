@@ -48,8 +48,6 @@ namespace MeetAndGo.WinUI.Building
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_Cities = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmb_Countries = new System.Windows.Forms.ComboBox();
             this.txt_Adress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Name = new System.Windows.Forms.TextBox();
@@ -66,7 +64,7 @@ namespace MeetAndGo.WinUI.Building
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 245);
+            this.label12.Location = new System.Drawing.Point(12, 205);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 13);
             this.label12.TabIndex = 81;
@@ -75,7 +73,7 @@ namespace MeetAndGo.WinUI.Building
             // cmb_TypeOfBuilding
             // 
             this.cmb_TypeOfBuilding.FormattingEnabled = true;
-            this.cmb_TypeOfBuilding.Location = new System.Drawing.Point(15, 261);
+            this.cmb_TypeOfBuilding.Location = new System.Drawing.Point(15, 221);
             this.cmb_TypeOfBuilding.Name = "cmb_TypeOfBuilding";
             this.cmb_TypeOfBuilding.Size = new System.Drawing.Size(219, 21);
             this.cmb_TypeOfBuilding.TabIndex = 7;
@@ -202,7 +200,7 @@ namespace MeetAndGo.WinUI.Building
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 205);
+            this.label4.Location = new System.Drawing.Point(12, 165);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 66;
@@ -211,7 +209,7 @@ namespace MeetAndGo.WinUI.Building
             // cmb_Cities
             // 
             this.cmb_Cities.FormattingEnabled = true;
-            this.cmb_Cities.Location = new System.Drawing.Point(15, 221);
+            this.cmb_Cities.Location = new System.Drawing.Point(15, 181);
             this.cmb_Cities.Name = "cmb_Cities";
             this.cmb_Cities.Size = new System.Drawing.Size(219, 21);
             this.cmb_Cities.TabIndex = 6;
@@ -226,24 +224,6 @@ namespace MeetAndGo.WinUI.Building
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 165);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "Country";
-            // 
-            // cmb_Countries
-            // 
-            this.cmb_Countries.FormattingEnabled = true;
-            this.cmb_Countries.Location = new System.Drawing.Point(15, 181);
-            this.cmb_Countries.Name = "cmb_Countries";
-            this.cmb_Countries.Size = new System.Drawing.Size(219, 21);
-            this.cmb_Countries.TabIndex = 5;
-            this.cmb_Countries.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Countries_Validating);
             // 
             // txt_Adress
             // 
@@ -284,6 +264,7 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Picture.Location = new System.Drawing.Point(577, 262);
             this.txt_Picture.Multiline = true;
             this.txt_Picture.Name = "txt_Picture";
+            this.txt_Picture.ReadOnly = true;
             this.txt_Picture.Size = new System.Drawing.Size(188, 35);
             this.txt_Picture.TabIndex = 61;
             // 
@@ -338,8 +319,6 @@ namespace MeetAndGo.WinUI.Building
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmb_Cities);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmb_Countries);
             this.Controls.Add(this.txt_Adress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_Name);
@@ -377,8 +356,6 @@ namespace MeetAndGo.WinUI.Building
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_Cities;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmb_Countries;
         private System.Windows.Forms.TextBox txt_Adress;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Name;

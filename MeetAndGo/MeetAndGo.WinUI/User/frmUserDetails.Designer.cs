@@ -38,7 +38,6 @@ namespace MeetAndGo.WinUI.User
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnDodaj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clbRole
@@ -113,21 +112,11 @@ namespace MeetAndGo.WinUI.User
             this.label5.TabIndex = 42;
             this.label5.Text = "Email";
             // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(308, 179);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(159, 35);
-            this.btnDodaj.TabIndex = 45;
-            this.btnDodaj.Text = "Save";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            // 
             // frmUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 222);
-            this.Controls.Add(this.btnDodaj);
+            this.ClientSize = new System.Drawing.Size(479, 166);
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -156,6 +145,5 @@ namespace MeetAndGo.WinUI.User
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnDodaj;
     }
 }

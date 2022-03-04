@@ -34,6 +34,7 @@ namespace MeetAndGo.Mappers
             CreateMap<BuildingUpsertRequest, Database.Building>();
             CreateMap<UserUpsertRequest, Database.User>();
             CreateMap<UserAccountUpsertRequest, Database.UserAccount>();
+            CreateMap<UserAccountRoleUpsertRequest, Database.UserAccountRole>();
         }
     }
 }

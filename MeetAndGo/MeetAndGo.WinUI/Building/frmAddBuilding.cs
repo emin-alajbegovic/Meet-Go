@@ -7,7 +7,6 @@ namespace MeetAndGo.WinUI.Building
     public partial class frmAddBuilding : Form
     {
         ApiService _serviceCities = new ApiService("City");
-        ApiService _serviceCountries = new ApiService("Country");
         ApiService _serviceTypeOfBuildings = new ApiService("TypeOfBuilding");
         ApiService _serviceBuildings = new ApiService("Building");
 
@@ -19,7 +18,6 @@ namespace MeetAndGo.WinUI.Building
         private async void frmAddBuilding_Load(object sender, System.EventArgs e)
         {
             await LoadCities();
-            await LoadCountries();
             await LoadTypeOfBuildings();
         }
 
@@ -27,11 +25,6 @@ namespace MeetAndGo.WinUI.Building
         {
             var cities = await _serviceCities.GetAll<List<Model.City>>();
             LoadDataHelper.LoadDataInComboBox(cmb_Cities, cities, "CityId");
-        }
-        private async Task LoadCountries()
-        {
-            var countries = await _serviceCountries.GetAll<List<Model.Country>>();
-            LoadDataHelper.LoadDataInComboBox(cmb_Countries, countries, "CountryId");
         }
         private async Task LoadTypeOfBuildings()
         {
@@ -42,7 +35,6 @@ namespace MeetAndGo.WinUI.Building
         {
             if (ValidateChildren() && txtPicture_Validating())
             {
-                var cmbCountries = cmb_Countries.SelectedValue; 
                 var cmbCity = cmb_Cities.SelectedValue;
                 var cmbTypeOfBuilding = cmb_TypeOfBuilding.SelectedValue;
                 var clbParking = check_Parking.Checked;
@@ -63,12 +55,7 @@ namespace MeetAndGo.WinUI.Building
                     NumberOfOffices = int.Parse(txt_OfficeNumbers.Text),
                     Security = clbSecurity,
                     Price = decimal.Parse(txt_Price.Text),
-                    //Picture="test",
                 };
-
-
-                //if (int.TryParse(cmbCountries.ToString(), out int Idd))
-                //    building.Coun = Idd;
 
                 if (int.TryParse(cmbTypeOfBuilding.ToString(), out int Id))
                     building.TypeOfBuildingId = Id;
@@ -77,7 +64,6 @@ namespace MeetAndGo.WinUI.Building
                     building.CityId = id;
 
                 building.Picture = PictureService.FromImageToByte(txt_Picture);
-
 
                 await _serviceBuildings.Insert<Model.Building>(building);
                 MessageBox.Show("Building successfully added!");
@@ -165,6 +151,5 @@ namespace MeetAndGo.WinUI.Building
         {
             return Validator.RequiredFieldPicture(txt_Picture, errorProv, Properties.Resources.RequiredField);
         }
-
     }
 }

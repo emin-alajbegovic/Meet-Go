@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace MeetAndGo.Database
 {
@@ -21,7 +22,9 @@ namespace MeetAndGo.Database
         public string Picture { get; set; }
         public bool Rented { get; set; }
         public int NumberOfFloors { get; set; }
+        [Browsable(false)]
         public int CityId { get; set; }
+        [Browsable(false)]
         public int TypeOfBuildingId { get; set; }
         public int NumberOfOffices { get; set; }
         public bool IsDeleted { get; set; }
