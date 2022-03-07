@@ -19,7 +19,7 @@ namespace MeetAndGo.Database
         public string Description { get; set; }
         public string Area { get; set; }
         public decimal Price { get; set; }
-        public string Picture { get; set; }
+        public byte[] Picture { get; set; }
         public bool Rented { get; set; }
         public int NumberOfFloors { get; set; }
         [Browsable(false)]

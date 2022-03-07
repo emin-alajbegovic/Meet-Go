@@ -52,6 +52,7 @@ namespace MeetAndGo.WinUI.Building
                 check_Cameras.Checked = _building.Cameras;
                 check_Security.Checked = _building.Security;
                 check_Parking.Checked = _building.Parking;
+                pbx_Picture.Image = PictureService.FromByteToImage(_building.Picture);
             }
         }
 

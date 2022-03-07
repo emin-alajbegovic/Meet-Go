@@ -39,7 +39,6 @@ namespace MeetAndGo.WinUI.Office
                 var cmbTypeOfOffice = cmb_TypeOfOffice.SelectedValue;
                 var clbParking = check_Parking.Checked;
                 var clbCameras = check_Cameras.Checked;
-                var clbSecurity = check_Security.Checked;
 
                 Model.Requests.OfficeUpsertRequest office = new Model.Requests.OfficeUpsertRequest
                 {
@@ -52,7 +51,6 @@ namespace MeetAndGo.WinUI.Office
                     Rented = false,
                     IsDeleted = false,
                     NumberOfFloors = int.Parse(txt_Floors.Text),
-                    Security = clbSecurity,
                     Price = decimal.Parse(txt_Price.Text),
                 };
 

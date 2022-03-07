@@ -11,5 +11,10 @@ namespace MeetAndGo.Controllers
         {
 
         }
+        //[HttpGet("{id}")]
+        //public Model.UserAccount GetById(int id)
+        //{
+        //    return _service.GetById(id);
+        //}
     }
 }

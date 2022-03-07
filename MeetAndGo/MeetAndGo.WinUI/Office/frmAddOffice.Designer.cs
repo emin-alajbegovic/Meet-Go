@@ -34,7 +34,6 @@ namespace MeetAndGo.WinUI.Office
             this.cmb_TypeOfOffice = new System.Windows.Forms.ComboBox();
             this.check_Parking = new System.Windows.Forms.CheckBox();
             this.check_Cameras = new System.Windows.Forms.CheckBox();
-            this.check_Security = new System.Windows.Forms.CheckBox();
             this.txt_Price = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Floors = new System.Windows.Forms.TextBox();
@@ -79,7 +78,7 @@ namespace MeetAndGo.WinUI.Office
             // check_Parking
             // 
             this.check_Parking.AutoSize = true;
-            this.check_Parking.Location = new System.Drawing.Point(256, 183);
+            this.check_Parking.Location = new System.Drawing.Point(256, 143);
             this.check_Parking.Name = "check_Parking";
             this.check_Parking.Size = new System.Drawing.Size(62, 17);
             this.check_Parking.TabIndex = 13;
@@ -89,22 +88,12 @@ namespace MeetAndGo.WinUI.Office
             // check_Cameras
             // 
             this.check_Cameras.AutoSize = true;
-            this.check_Cameras.Location = new System.Drawing.Point(256, 143);
+            this.check_Cameras.Location = new System.Drawing.Point(256, 103);
             this.check_Cameras.Name = "check_Cameras";
             this.check_Cameras.Size = new System.Drawing.Size(67, 17);
             this.check_Cameras.TabIndex = 12;
             this.check_Cameras.Text = "Cameras";
             this.check_Cameras.UseVisualStyleBackColor = true;
-            // 
-            // check_Security
-            // 
-            this.check_Security.AutoSize = true;
-            this.check_Security.Location = new System.Drawing.Point(256, 103);
-            this.check_Security.Name = "check_Security";
-            this.check_Security.Size = new System.Drawing.Size(64, 17);
-            this.check_Security.TabIndex = 11;
-            this.check_Security.Text = "Security";
-            this.check_Security.UseVisualStyleBackColor = true;
             // 
             // txt_Price
             // 
@@ -281,7 +270,6 @@ namespace MeetAndGo.WinUI.Office
             this.Controls.Add(this.cmb_TypeOfOffice);
             this.Controls.Add(this.check_Parking);
             this.Controls.Add(this.check_Cameras);
-            this.Controls.Add(this.check_Security);
             this.Controls.Add(this.txt_Price);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_Floors);
@@ -316,7 +304,6 @@ namespace MeetAndGo.WinUI.Office
         private System.Windows.Forms.ComboBox cmb_TypeOfOffice;
         private System.Windows.Forms.CheckBox check_Parking;
         private System.Windows.Forms.CheckBox check_Cameras;
-        private System.Windows.Forms.CheckBox check_Security;
         private System.Windows.Forms.TextBox txt_Price;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_Floors;

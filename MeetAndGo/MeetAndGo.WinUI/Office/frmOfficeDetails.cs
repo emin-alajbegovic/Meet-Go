@@ -50,6 +50,7 @@ namespace MeetAndGo.WinUI.Office
                 cmb_TypeOfOffice.SelectedIndex = _office.TypeOfOfficeId - 1;
                 check_Cameras.Checked = _office.Cameras;
                 check_Parking.Checked = _office.Parking;
+                pbx_Picture.Image = PictureService.FromByteToImage(_office.Picture);
             }
         }
 
