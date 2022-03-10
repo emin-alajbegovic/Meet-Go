@@ -12,6 +12,8 @@ namespace MeetAndGo.WinUI.User
         ApiService _serviceUsers = new ApiService("User");
         ApiService _serviceRoles = new ApiService("Role");
         ApiService _serviceUserAccounts = new ApiService("UserAccount");
+        ApiService _serviceUserRolesAccounts = new ApiService("UserAccountRole");
+
 
         private Model.User _user;
         public frmUserDetails(Model.User user = null)
@@ -26,11 +28,11 @@ namespace MeetAndGo.WinUI.User
 
             var result = await _serviceUserAccounts.GetAll<List<Model.UserAccount>>();
             Model.UserAccount user = result?.FirstOrDefault(x => x.UserAccountId == _user.UserAccountId);
-            var role = user.UserAccountRole.Where(x => x.UserAccountId == _user.UserAccountId).FirstOrDefault();
+            var role = await _serviceUserRolesAccounts.GetRoleByUserAccountId<Model.UserAccountRole>(user.UserAccountId);
 
             if (role != null)
             {
-                clbRole.SetItemChecked(role.Role.RoleId, true);
+                clbRole.SetItemChecked(role.RoleId - 1, true);
             }
 
             if (_user != null)

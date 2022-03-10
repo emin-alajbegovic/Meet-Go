@@ -77,7 +77,6 @@ namespace MeetAndGo.WinUI.Building
             this.cmb_TypeOfBuilding.Name = "cmb_TypeOfBuilding";
             this.cmb_TypeOfBuilding.Size = new System.Drawing.Size(219, 21);
             this.cmb_TypeOfBuilding.TabIndex = 7;
-            this.cmb_TypeOfBuilding.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_TypeOfBuilding_Validating);
             // 
             // check_Parking
             // 
@@ -88,7 +87,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Parking.TabIndex = 13;
             this.check_Parking.Text = "Parking";
             this.check_Parking.UseVisualStyleBackColor = true;
-            this.check_Parking.Validating += new System.ComponentModel.CancelEventHandler(this.check_Parking_Validating);
             // 
             // check_Cameras
             // 
@@ -99,7 +97,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Cameras.TabIndex = 12;
             this.check_Cameras.Text = "Cameras";
             this.check_Cameras.UseVisualStyleBackColor = true;
-            this.check_Cameras.Validating += new System.ComponentModel.CancelEventHandler(this.check_Cameras_Validating);
             // 
             // check_Security
             // 
@@ -110,7 +107,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Security.TabIndex = 11;
             this.check_Security.Text = "Security";
             this.check_Security.UseVisualStyleBackColor = true;
-            this.check_Security.Validating += new System.ComponentModel.CancelEventHandler(this.check_Security_Validating);
             // 
             // txt_OfficeNumbers
             // 
@@ -213,7 +209,6 @@ namespace MeetAndGo.WinUI.Building
             this.cmb_Cities.Name = "cmb_Cities";
             this.cmb_Cities.Size = new System.Drawing.Size(219, 21);
             this.cmb_Cities.TabIndex = 6;
-            this.cmb_Cities.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Cities_Validating);
             // 
             // btnSave
             // 

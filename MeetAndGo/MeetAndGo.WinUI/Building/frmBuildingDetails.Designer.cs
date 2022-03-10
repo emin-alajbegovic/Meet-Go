@@ -29,6 +29,7 @@ namespace MeetAndGo.WinUI.Building
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.cmb_TypeOfBuilding = new System.Windows.Forms.ComboBox();
             this.check_Parking = new System.Windows.Forms.CheckBox();
@@ -54,7 +55,10 @@ namespace MeetAndGo.WinUI.Building
             this.txt_Picture = new System.Windows.Forms.TextBox();
             this.btn_LoadImage = new System.Windows.Forms.Button();
             this.pbx_Picture = new System.Windows.Forms.PictureBox();
+            this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
+            this.errorProv = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -207,7 +211,7 @@ namespace MeetAndGo.WinUI.Building
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(159, 35);
             this.btnSave.TabIndex = 95;
-            this.btnSave.Text = ".";
+            this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -260,6 +264,7 @@ namespace MeetAndGo.WinUI.Building
             this.btn_LoadImage.TabIndex = 94;
             this.btn_LoadImage.Text = "...";
             this.btn_LoadImage.UseVisualStyleBackColor = true;
+            this.btn_LoadImage.Click += new System.EventHandler(this.btn_LoadImage_Click);
             // 
             // pbx_Picture
             // 
@@ -270,6 +275,14 @@ namespace MeetAndGo.WinUI.Building
             this.pbx_Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_Picture.TabIndex = 96;
             this.pbx_Picture.TabStop = false;
+            // 
+            // ofdPicture
+            // 
+            this.ofdPicture.FileName = "openFileDialog1";
+            // 
+            // errorProv
+            // 
+            this.errorProv.ContainerControl = this;
             // 
             // frmBuildingDetails
             // 
@@ -305,6 +318,7 @@ namespace MeetAndGo.WinUI.Building
             this.Text = "frmBuildingDetails";
             this.Load += new System.EventHandler(this.frmBuildingDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +351,7 @@ namespace MeetAndGo.WinUI.Building
         private System.Windows.Forms.TextBox txt_Picture;
         private System.Windows.Forms.Button btn_LoadImage;
         private System.Windows.Forms.PictureBox pbx_Picture;
+        private System.Windows.Forms.OpenFileDialog ofdPicture;
+        private System.Windows.Forms.ErrorProvider errorProv;
     }
 }

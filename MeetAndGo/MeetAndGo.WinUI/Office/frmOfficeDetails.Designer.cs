@@ -29,6 +29,7 @@ namespace MeetAndGo.WinUI.Office
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.cmb_TypeOfOffice = new System.Windows.Forms.ComboBox();
             this.check_Parking = new System.Windows.Forms.CheckBox();
@@ -51,7 +52,10 @@ namespace MeetAndGo.WinUI.Office
             this.txt_Picture = new System.Windows.Forms.TextBox();
             this.btn_LoadImage = new System.Windows.Forms.Button();
             this.pbx_Picture = new System.Windows.Forms.PictureBox();
+            this.errorProv = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -231,6 +235,7 @@ namespace MeetAndGo.WinUI.Office
             this.btn_LoadImage.TabIndex = 12;
             this.btn_LoadImage.Text = "...";
             this.btn_LoadImage.UseVisualStyleBackColor = true;
+            this.btn_LoadImage.Click += new System.EventHandler(this.btn_LoadImage_Click);
             // 
             // pbx_Picture
             // 
@@ -241,6 +246,14 @@ namespace MeetAndGo.WinUI.Office
             this.pbx_Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_Picture.TabIndex = 123;
             this.pbx_Picture.TabStop = false;
+            // 
+            // errorProv
+            // 
+            this.errorProv.ContainerControl = this;
+            // 
+            // ofdPicture
+            // 
+            this.ofdPicture.FileName = "openFileDialog1";
             // 
             // frmOfficeDetails
             // 
@@ -273,6 +286,7 @@ namespace MeetAndGo.WinUI.Office
             this.Text = "frmOfficeDetails";
             this.Load += new System.EventHandler(this.frmOfficeDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +316,7 @@ namespace MeetAndGo.WinUI.Office
         private System.Windows.Forms.TextBox txt_Picture;
         private System.Windows.Forms.Button btn_LoadImage;
         private System.Windows.Forms.PictureBox pbx_Picture;
+        private System.Windows.Forms.ErrorProvider errorProv;
+        private System.Windows.Forms.OpenFileDialog ofdPicture;
     }
 }

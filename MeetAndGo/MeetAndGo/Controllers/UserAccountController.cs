@@ -20,39 +20,43 @@ namespace MeetAndGo.Controllers
         private readonly IUserAccountService _service;
         public UserAccountController(IUserAccountService service) { _service = service; }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet]
         public IEnumerable<Model.UserAccount> Get([FromQuery] UserAccountSearchObject request)
         {
             return _service.Get(request);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("Username/{username}")]
         public async Task<Model.UserAccount> GetByUsername(string username)
         {
             return await _service.GetUserAccountByUsername(username);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("{id}")]
         public Model.UserAccount GetById(int id)
         {
             return _service.GetById(id);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpPost]
         public Model.UserAccount Insert([FromBody] UserAccountUpsertRequest request)
         {
             return _service.Insert(request);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpPut("{id}")]
         public Model.UserAccount Update(int id, [FromBody] UserAccountUpsertRequest request)
         {
             return _service.Update(id, request);
         }
 
-        [HttpDelete("{id}")]
         [Authorize(Roles = "SuperAdmin")]
-
+        [HttpDelete("{id}")]
         public Model.UserAccount Delete(int id)
         {
             return _service.Delete(id);

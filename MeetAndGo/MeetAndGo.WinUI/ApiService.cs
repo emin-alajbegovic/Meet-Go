@@ -71,5 +71,13 @@ namespace MeetAndGo.WinUI
 
             return result;
         }
+
+        public async Task<T> GetRoleByUserAccountId<T>(int userAccountId)
+        {
+            var url = $"{endpoint}/{_route}/UserAccount/{userAccountId}";
+            var result = await url.WithBasicAuth(UserName, Password).GetJsonAsync<T>();
+
+            return result;
+        }
     }
 }

@@ -23,33 +23,36 @@ namespace MeetAndGo.Controllers
         private readonly IUserService _service;
         public UserController(IUserService service) { _service = service; }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet]
         public IEnumerable<Model.User> Get([FromQuery] UserSearchObject request)
         {
             return _service.Get(request);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("{id}")]
         public Model.User GetById(int id)
         {
             return _service.GetById(id);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpPost]
         public Model.User Insert([FromBody] UserUpsertRequest request)
         {
             return _service.Insert(request);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPut("{id}")]
         public Model.User Update(int id, [FromBody] UserUpsertRequest request)
         {
             return _service.Update(id, request);
         }
 
-        [HttpDelete("{id}")]
         [Authorize(Roles = "SuperAdmin")]
-
+        [HttpDelete("{id}")]
         public Model.User Delete(int id)
         {
             return _service.Delete(id);

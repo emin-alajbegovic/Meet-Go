@@ -58,7 +58,53 @@ namespace MeetAndGo.WinUI.Building
 
         private async void btnSave_Click(object sender, System.EventArgs e)
         {
-            await LoadData();
+            if (ValidateChildren())
+            {
+                var cmbCity = cmb_Cities.SelectedValue;
+                var cmbTypeOfBuilding = cmb_TypeOfBuilding.SelectedValue;
+                var clbParking = check_Parking.Checked;
+                var clbCameras = check_Cameras.Checked;
+                var clbSecurity = check_Security.Checked;
+
+                Model.Requests.BuildingUpsertRequest building = new Model.Requests.BuildingUpsertRequest
+                {
+                    Name = txt_Name.Text,
+                    Adress = txt_Adress.Text,
+                    Description = txt_Description.Text,
+                    Area = txt_Area.Text,
+                    Parking = clbParking,
+                    Cameras = clbCameras,
+                    Rented = false,
+                    IsDeleted = false,
+                    NumberOfFloors = int.Parse(txt_Floors.Text),
+                    NumberOfOffices = int.Parse(txt_OfficeNumbers.Text),
+                    Security = clbSecurity,
+                    Price = decimal.Parse(txt_Price.Text),
+                };
+
+                if (int.TryParse(cmbTypeOfBuilding.ToString(), out int Id))
+                    building.TypeOfBuildingId = Id;
+
+                if (int.TryParse(cmbCity.ToString(), out int id))
+                    building.CityId = id;
+
+                if (txt_Picture.Text != "")
+                    building.Picture = PictureService.FromImageToByte(txt_Picture);
+                else
+                    building.Picture = _building.Picture;
+
+                await _serviceBuildings.Update<Model.Building>(_building.BuildingId, building);
+                MessageBox.Show("Building successfully uodated!");
+                this.Close();
+            }
+        }
+
+        private void btn_LoadImage_Click(object sender, System.EventArgs e)
+        {
+            var result = ofdPicture.ShowDialog();
+
+            if (result == DialogResult.OK)
+                OpenFileDialogHelper.LoadPicture(ofdPicture, pbx_Picture, txt_Picture);
         }
     }
 }

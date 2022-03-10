@@ -67,7 +67,7 @@ namespace MeetAndGo
             services.AddScoped<IReadService<Model.CanceledBuilding, object>, BaseReadService<Model.CanceledBuilding, Database.CanceledBuilding, object>>();
             services.AddScoped<IReadService<Model.BuildingReview, object>, BaseReadService<Model.BuildingReview, Database.BuildingReview, object>>();
             services.AddScoped<IReadService<Model.TypeOfOffice, object>, BaseReadService<Model.TypeOfOffice, Database.TypeOfOffice, object>>();
-            services.AddScoped<IReadService<Model.RentedOffice, object>, BaseReadService<Model.RentedOffice, Database.RentedOffice, object>>();
+            //services.AddScoped<IReadService<Model.RentedOffice, object>, BaseReadService<Model.RentedOffice, Database.RentedOffice, object>>();
             services.AddScoped<IReadService<Model.CanceledOffice, object>, BaseReadService<Model.CanceledOffice, Database.CanceledOffice, object>>();
             services.AddScoped<IReadService<Model.OfficeReview, object>, BaseReadService<Model.OfficeReview, Database.OfficeReview, object>>();
 
@@ -76,6 +76,7 @@ namespace MeetAndGo
             services.AddScoped<IBuildingService, BuildingService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOfficeService, OfficeService>();
+            services.AddScoped<IRentedOfficeService, RentedOfficeService>();
             services.AddScoped<IUserAccountService, UserAccountService>();
 
             services.AddAuthentication("BasicAuthentication")

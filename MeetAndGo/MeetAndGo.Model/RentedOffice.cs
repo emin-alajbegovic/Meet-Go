@@ -11,6 +11,6 @@ namespace MeetAndGo.Model
         public DateTime EndRentalDate { get; set; }
         public bool Rented { get; set; }
         public virtual User User { get; set; }
-
+        public virtual Office Office { get; set; }
     }
 }
