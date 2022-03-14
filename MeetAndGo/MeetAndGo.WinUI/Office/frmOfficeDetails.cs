@@ -95,6 +95,14 @@ namespace MeetAndGo.WinUI.Office
                 this.Close();
             }
         }
+        private void cmb_Cities_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_Cities, e, errorProv, Properties.Resources.RequiredField);
+        }
+        private void cmb_TypeOfOffice_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_TypeOfOffice, e, errorProv, Properties.Resources.RequiredField);
+        }
 
         private void btn_LoadImage_Click(object sender, System.EventArgs e)
         {

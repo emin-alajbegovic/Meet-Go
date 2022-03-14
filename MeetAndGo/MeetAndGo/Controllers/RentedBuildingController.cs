@@ -15,11 +15,18 @@ namespace MeetAndGo.Controllers
         private readonly IRentedBuildingService _service;
         public RentedBuildingController(IRentedBuildingService service) { _service = service; }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("all")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IEnumerable<Model.RentedBuilding>> GetAllRentedBuildings()
         {
             return await _service.GetAllRentedBuildings();
+        }
+
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        public Model.RentedBuilding GetById(int id)
+        {
+            return _service.GetById(id);
         }
 
         [HttpDelete("{id}")]

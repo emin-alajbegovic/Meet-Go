@@ -74,6 +74,7 @@ namespace MeetAndGo.WinUI.Office
             this.cmb_TypeOfOffice.Name = "cmb_TypeOfOffice";
             this.cmb_TypeOfOffice.Size = new System.Drawing.Size(219, 21);
             this.cmb_TypeOfOffice.TabIndex = 6;
+            this.cmb_TypeOfOffice.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_TypeOfOffice_Validating);
             // 
             // check_Parking
             // 
@@ -175,6 +176,7 @@ namespace MeetAndGo.WinUI.Office
             this.cmb_Cities.Name = "cmb_Cities";
             this.cmb_Cities.Size = new System.Drawing.Size(219, 21);
             this.cmb_Cities.TabIndex = 5;
+            this.cmb_Cities.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Cities_Validating);
             // 
             // btnSave
             // 

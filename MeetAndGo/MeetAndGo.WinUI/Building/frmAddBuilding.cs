@@ -109,6 +109,15 @@ namespace MeetAndGo.WinUI.Building
         {
             Validator.RequiredFieldTxt(sender as TextBox, e, errorProv, Properties.Resources.RequiredField);
         }
+        private void cmb_Cities_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_Cities, e, errorProv, Properties.Resources.RequiredField);
+        }
+
+        private void cmb_TypeOfBuilding_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_TypeOfBuilding, e, errorProv, Properties.Resources.RequiredField);
+        }
 
         private void btn_LoadImage_Click(object sender, System.EventArgs e)
         {

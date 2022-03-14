@@ -21,6 +21,15 @@ namespace MeetAndGo.Services
 
             return _mapper.Map<IEnumerable<Database.RentedOffice>, IEnumerable<Model.RentedOffice>>(entity);
         }
-    }
 
+        public override Model.RentedOffice GetById(int rentedOfficeId)
+        {
+            var entity = _dbContext.RentedOffice.Include("Office").Include("User").FirstOrDefault(x => x.RentedOfficeId == rentedOfficeId);
+
+            if (entity == null)
+                return null;
+
+            return _mapper.Map<Model.RentedOffice>(entity);
+        }
+    }
 }

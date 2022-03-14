@@ -93,7 +93,7 @@ namespace MeetAndGo.WinUI
             // displayToolStripMenuItem
             // 
             this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.displayToolStripMenuItem.Text = "Display Users";
             this.displayToolStripMenuItem.Click += new System.EventHandler(this.displayToolStripMenuItem_Click);
             // 
@@ -110,21 +110,21 @@ namespace MeetAndGo.WinUI
             // displayToolStripMenuItem1
             // 
             this.displayToolStripMenuItem1.Name = "displayToolStripMenuItem1";
-            this.displayToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.displayToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.displayToolStripMenuItem1.Text = "Display Offices";
             this.displayToolStripMenuItem1.Click += new System.EventHandler(this.displayToolStripMenuItem1_Click);
             // 
             // addOfficeToolStripMenuItem
             // 
             this.addOfficeToolStripMenuItem.Name = "addOfficeToolStripMenuItem";
-            this.addOfficeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addOfficeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addOfficeToolStripMenuItem.Text = "Add Office";
             this.addOfficeToolStripMenuItem.Click += new System.EventHandler(this.addOfficeToolStripMenuItem_Click);
             // 
             // viewRentedToolStripMenuItem
             // 
             this.viewRentedToolStripMenuItem.Name = "viewRentedToolStripMenuItem";
-            this.viewRentedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewRentedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.viewRentedToolStripMenuItem.Text = "Rented Offices";
             // 
             // buildingsToolStripMenuItem
@@ -147,7 +147,7 @@ namespace MeetAndGo.WinUI
             // addBuildingToolStripMenuItem
             // 
             this.addBuildingToolStripMenuItem.Name = "addBuildingToolStripMenuItem";
-            this.addBuildingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBuildingToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.addBuildingToolStripMenuItem.Text = "Add Building";
             this.addBuildingToolStripMenuItem.Click += new System.EventHandler(this.addBuildingToolStripMenuItem_Click);
             // 
@@ -169,14 +169,16 @@ namespace MeetAndGo.WinUI
             // buildingsToolStripMenuItem1
             // 
             this.buildingsToolStripMenuItem1.Name = "buildingsToolStripMenuItem1";
-            this.buildingsToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.buildingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.buildingsToolStripMenuItem1.Text = "Buildings";
+            this.buildingsToolStripMenuItem1.Click += new System.EventHandler(this.buildingsToolStripMenuItem1_Click);
             // 
             // officesToolStripMenuItem
             // 
             this.officesToolStripMenuItem.Name = "officesToolStripMenuItem";
-            this.officesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.officesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.officesToolStripMenuItem.Text = "Offices";
+            this.officesToolStripMenuItem.Click += new System.EventHandler(this.officesToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 

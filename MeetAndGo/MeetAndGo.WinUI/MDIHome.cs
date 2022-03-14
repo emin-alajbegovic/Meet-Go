@@ -1,5 +1,6 @@
 ﻿using MeetAndGo.WinUI.Building;
 using MeetAndGo.WinUI.Office;
+using MeetAndGo.WinUI.Rented;
 using MeetAndGo.WinUI.User;
 using System;
 using System.Windows.Forms;
@@ -140,6 +141,22 @@ namespace MeetAndGo.WinUI
         private void addBuildingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddBuilding frm = new frmAddBuilding();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void buildingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRentedBuildings frm = new frmRentedBuildings();
+
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void officesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRentedOffices frm = new frmRentedOffices();
 
             frm.MdiParent = this;
             frm.Show();

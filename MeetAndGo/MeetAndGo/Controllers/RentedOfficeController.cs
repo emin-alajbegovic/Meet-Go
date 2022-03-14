@@ -21,6 +21,13 @@ namespace MeetAndGo.Controllers
             return await _service.GetAllRentedOffices();
         }
 
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        public Model.RentedOffice GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,SuperAdmin")]
         public Model.RentedOffice Delete(int id)
