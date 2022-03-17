@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MeetAndGo.Model.Requests;
 
 namespace MeetAndGo.Controllers
 {
@@ -26,6 +27,13 @@ namespace MeetAndGo.Controllers
         public Model.RentedOffice GetById(int id)
         {
             return _service.GetById(id);
+        }
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        [HttpPut("{id}")]
+        public Model.RentedOffice Update(int id, [FromBody] RentedOfficeUpdateRequest request)
+        {
+            return _service.Update(id, request);
         }
 
         [HttpDelete("{id}")]

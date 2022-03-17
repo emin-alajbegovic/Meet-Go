@@ -94,7 +94,7 @@ namespace MeetAndGo.WinUI.Building
                     building.Picture = _building.Picture;
 
                 await _serviceBuildings.Update<Model.Building>(_building.BuildingId, building);
-                MessageBox.Show("Building successfully uodated!");
+                MessageBox.Show("Building successfully upated!");
                 this.Close();
             }
         }

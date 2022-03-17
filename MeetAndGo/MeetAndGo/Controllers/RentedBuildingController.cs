@@ -1,5 +1,6 @@
 ﻿using MeetAndGo.Interfaces;
 using MeetAndGo.Model;
+using MeetAndGo.Model.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,6 +28,13 @@ namespace MeetAndGo.Controllers
         public Model.RentedBuilding GetById(int id)
         {
             return _service.GetById(id);
+        }
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        [HttpPut("{id}")]
+        public Model.RentedBuilding Update(int id, [FromBody] RentedBuildingUpdateRequest request)
+        {
+            return _service.Update(id, request);
         }
 
         [HttpDelete("{id}")]
