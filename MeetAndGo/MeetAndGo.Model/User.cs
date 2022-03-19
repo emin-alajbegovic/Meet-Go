@@ -9,6 +9,8 @@ namespace MeetAndGo.Model
         }
 
         [Browsable(false)]
+        public int UserId { get; set; }
+        [Browsable(false)]
         public int UserAccountId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

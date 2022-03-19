@@ -45,5 +45,14 @@ namespace MeetAndGo.Services
 
             return _mapper.Map<Model.RentedBuilding>(entity);
         }
+        public async Task<IEnumerable<Model.RentedBuilding>> GetAllRentedBuildingsByUserId(int userId)
+        {
+            var entity = await _dbContext.RentedBuilding.Include("Building").Include("User").Where(x => x.UserId == userId).ToListAsync();
+
+            if (entity == null)
+                return null;
+
+            return _mapper.Map<IEnumerable<Database.RentedBuilding>, IEnumerable<Model.RentedBuilding>>(entity);
+        }
     }
 }

@@ -45,5 +45,15 @@ namespace MeetAndGo.Services
 
             return _mapper.Map<Model.RentedOffice>(entity);
         }
+
+        public async Task<IEnumerable<Model.RentedOffice>> GetAllRentedOfficesByUserId(int userId)
+        {
+            var entity = await _dbContext.RentedOffice.Include("Office").Include("User").Where(x => x.UserId == userId).ToListAsync();
+
+            if (entity == null)
+                return null;
+
+            return _mapper.Map<IEnumerable<Database.RentedOffice>, IEnumerable<Model.RentedOffice>>(entity);
+        }
     }
 }

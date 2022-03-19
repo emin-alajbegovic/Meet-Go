@@ -88,10 +88,17 @@ namespace MeetAndGo.WinUI
             return result;
         }
 
-
         public async Task<T> GetAllRentedOffices<T>()
         {
             var url = $"{endpoint}/{_route}/all";
+            var result = await url.WithBasicAuth(UserName, Password).GetJsonAsync<T>();
+
+            return result;
+        }
+
+        public async Task<T> GetAllRentedByUserId<T>(int userId)
+        {
+            var url = $"{endpoint}/{_route}/user/{userId}";
             var result = await url.WithBasicAuth(UserName, Password).GetJsonAsync<T>();
 
             return result;

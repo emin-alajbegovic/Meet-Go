@@ -30,6 +30,13 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpGet("user/{userId}")]
+        public async Task<IEnumerable<Model.RentedBuilding>> GetAllRentedBuildingsByUserId(int userId)
+        {
+            return await _service.GetAllRentedBuildingsByUserId(userId);
+        }
+
         [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPut("{id}")]
         public Model.RentedBuilding Update(int id, [FromBody] RentedBuildingUpdateRequest request)

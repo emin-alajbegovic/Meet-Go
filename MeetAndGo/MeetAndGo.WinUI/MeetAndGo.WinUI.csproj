@@ -128,6 +128,12 @@
     <Compile Include="Rented\frmRentedBuildings.Designer.cs">
       <DependentUpon>frmRentedBuildings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rented\frmRentedByUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rented\frmRentedByUser.Designer.cs">
+      <DependentUpon>frmRentedByUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rented\frmRentedOffices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </Compile>
     <EmbeddedResource Include="Rented\frmRentedBuildings.resx">
       <DependentUpon>frmRentedBuildings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rented\frmRentedByUser.resx">
+      <DependentUpon>frmRentedByUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rented\frmRentedOffices.resx">
       <DependentUpon>frmRentedOffices.cs</DependentUpon>

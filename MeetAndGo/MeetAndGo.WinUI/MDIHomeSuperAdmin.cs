@@ -21,5 +21,9 @@ namespace MeetAndGo.WinUI
 
             frm.ShowDialog();
         }
+        private void allRentedBuildingsByYearToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

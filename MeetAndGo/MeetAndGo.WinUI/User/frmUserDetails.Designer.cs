@@ -38,6 +38,7 @@ namespace MeetAndGo.WinUI.User
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnDisplayReservations = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clbRole
@@ -112,11 +113,22 @@ namespace MeetAndGo.WinUI.User
             this.label5.TabIndex = 42;
             this.label5.Text = "Email";
             // 
+            // btnDisplayReservations
+            // 
+            this.btnDisplayReservations.Location = new System.Drawing.Point(341, 177);
+            this.btnDisplayReservations.Name = "btnDisplayReservations";
+            this.btnDisplayReservations.Size = new System.Drawing.Size(126, 23);
+            this.btnDisplayReservations.TabIndex = 43;
+            this.btnDisplayReservations.Text = "Display reservations";
+            this.btnDisplayReservations.UseVisualStyleBackColor = true;
+            this.btnDisplayReservations.Click += new System.EventHandler(this.btnDisplayReservations_Click);
+            // 
             // frmUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 166);
+            this.ClientSize = new System.Drawing.Size(479, 212);
+            this.Controls.Add(this.btnDisplayReservations);
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -145,5 +157,6 @@ namespace MeetAndGo.WinUI.User
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnDisplayReservations;
     }
 }
