@@ -20,7 +20,12 @@ namespace MeetAndGo.Model
         public string Building { get; set; }
         public string Firstname { get; set; }
         public string LastName { get; set; }
+        [Browsable(false)]
+        public int Days { get; set; }
+        [Browsable(false)]
         public decimal Price { get; set; }
+        [Browsable(false)]
+        public decimal BuildingPrice { get; set; }
         public string Adress { get; set; }
         public byte[] Picture { get; set; }
         //[Browsable(false)]

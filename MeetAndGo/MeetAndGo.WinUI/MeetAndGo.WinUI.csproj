@@ -140,6 +140,12 @@
     <Compile Include="Rented\frmRentedOffices.Designer.cs">
       <DependentUpon>frmRentedOffices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\frmRentedByYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmRentedByYear.Designer.cs">
+      <DependentUpon>frmRentedByYear.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>

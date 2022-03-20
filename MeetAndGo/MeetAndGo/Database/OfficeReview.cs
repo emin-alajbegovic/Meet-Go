@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MeetAndGo.Database
+﻿namespace MeetAndGo.Database
 {
     public partial class OfficeReview
     {

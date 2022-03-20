@@ -28,7 +28,8 @@ namespace MeetAndGo.WinUI.Rented
             txt_Adress.Text = item.Adress;
             dtp_BeginRentalDate.Value = item.BeginRentalDate;
             dtp_EndRentalDate.Value = item.EndRentalDate;
-            //item.Price = decimal.Parse(txt_Price.Text);
+            txt_Days.Text = item.Days.ToString();
+            txt_Price.Text = item.Price.ToString();
 
             pbx_Picture.Image = PictureService.FromByteToImage(item.Picture);
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MeetAndGo.WinUI.Rented
@@ -15,10 +16,10 @@ namespace MeetAndGo.WinUI.Rented
             _user = user;
         }
 
-        private void frmRentedByUser_Load(object sender, EventArgs e)
+        private async void frmRentedByUser_Load(object sender, EventArgs e)
         {
-            //dgvOffices.DataSource = await _serviceRentedOffices.GetAll<List<Model.RentedOffice>>();
-            //dgvBuildings.DataSource = await _serviceRentedBuildings.GetAll<List<Model.RentedBuilding>>();
+            dgvOffices.DataSource = await _serviceRentedOffices.GetAllRentedByUserId<List<Model.RentedOffice>>(_user.UserId);
+            dgvBuildings.DataSource = await _serviceRentedBuildings.GetAllRentedByUserId<List<Model.RentedBuilding>>(_user.UserId);
         }
     }
 }

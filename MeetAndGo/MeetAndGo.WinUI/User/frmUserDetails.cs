@@ -59,7 +59,7 @@ namespace MeetAndGo.WinUI.User
 
             if (building.Count != 0 || office.Count != 0)
             {
-                frmRentedByUser frm = new frmRentedByUser();
+                frmRentedByUser frm = new frmRentedByUser(_user);
                 frm.Show();
             }
             else

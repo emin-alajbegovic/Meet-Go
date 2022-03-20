@@ -47,6 +47,8 @@ namespace MeetAndGo.WinUI.Rented
             this.dtp_BeginRentalDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.txt_Days = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentedBuildings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Picture)).BeginInit();
@@ -180,14 +182,14 @@ namespace MeetAndGo.WinUI.Rented
             // 
             // dtp_EndRentalDate
             // 
-            this.dtp_EndRentalDate.Location = new System.Drawing.Point(41, 276);
+            this.dtp_EndRentalDate.Location = new System.Drawing.Point(41, 315);
             this.dtp_EndRentalDate.Name = "dtp_EndRentalDate";
             this.dtp_EndRentalDate.Size = new System.Drawing.Size(219, 20);
             this.dtp_EndRentalDate.TabIndex = 184;
             // 
             // dtp_BeginRentalDate
             // 
-            this.dtp_BeginRentalDate.Location = new System.Drawing.Point(41, 237);
+            this.dtp_BeginRentalDate.Location = new System.Drawing.Point(41, 276);
             this.dtp_BeginRentalDate.Name = "dtp_BeginRentalDate";
             this.dtp_BeginRentalDate.Size = new System.Drawing.Size(219, 20);
             this.dtp_BeginRentalDate.TabIndex = 183;
@@ -195,7 +197,7 @@ namespace MeetAndGo.WinUI.Rented
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 260);
+            this.label7.Location = new System.Drawing.Point(38, 299);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 182;
@@ -204,17 +206,35 @@ namespace MeetAndGo.WinUI.Rented
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 219);
+            this.label8.Location = new System.Drawing.Point(38, 258);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 13);
             this.label8.TabIndex = 181;
             this.label8.Text = "Begin Rental Date";
+            // 
+            // txt_Days
+            // 
+            this.txt_Days.Location = new System.Drawing.Point(41, 235);
+            this.txt_Days.Name = "txt_Days";
+            this.txt_Days.Size = new System.Drawing.Size(219, 20);
+            this.txt_Days.TabIndex = 185;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 219);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 186;
+            this.label3.Text = "Days rented";
             // 
             // frmRentedBuildings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 625);
+            this.Controls.Add(this.txt_Days);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dtp_EndRentalDate);
             this.Controls.Add(this.dtp_BeginRentalDate);
             this.Controls.Add(this.label7);
@@ -263,5 +283,7 @@ namespace MeetAndGo.WinUI.Rented
         private System.Windows.Forms.DateTimePicker dtp_BeginRentalDate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_Days;
+        private System.Windows.Forms.Label label3;
     }
 }

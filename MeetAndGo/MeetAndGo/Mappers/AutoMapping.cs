@@ -19,7 +19,7 @@ namespace MeetAndGo.Mappers
                 .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.User.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.User.LastName))
                 .ForMember(dest => dest.Picture, opt => opt.MapFrom(src => src.Office.Picture))
-                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Office.Price))
+                .ForMember(dest => dest.OfficePrice, opt => opt.MapFrom(src => src.Office.Price))
                 .ForMember(dest => dest.Adress, opt => opt.MapFrom(src => src.Office.Adress));
 
             CreateMap<Database.Transactions, Model.Transactions>();
@@ -33,7 +33,7 @@ namespace MeetAndGo.Mappers
                 .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.User.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.User.LastName))
                 .ForMember(dest => dest.Picture, opt => opt.MapFrom(src => src.Building.Picture))
-                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Building.Price))
+                .ForMember(dest => dest.BuildingPrice, opt => opt.MapFrom(src => src.Building.Price))
                 .ForMember(dest => dest.Adress, opt => opt.MapFrom(src => src.Building.Adress));
 
             CreateMap<Database.User, Model.User>()
