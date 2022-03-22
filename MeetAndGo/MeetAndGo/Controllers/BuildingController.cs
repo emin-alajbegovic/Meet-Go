@@ -7,16 +7,6 @@ using System.Collections.Generic;
 
 namespace MeetAndGo.Controllers
 {
-
-    //public class BuildingController : BaseCRUDController<Model.Building, BuildingSearchObject, BuildingUpsertRequest, BuildingUpsertRequest>
-    //{
-    //    public BuildingController(IBuildingService buildingService)
-    //        : base(buildingService)
-    //    {
-
-    //    }
-    //}
-
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]

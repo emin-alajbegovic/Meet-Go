@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MeetAndGo.Database;
 using MeetAndGo.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

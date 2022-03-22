@@ -8,8 +8,6 @@ namespace MeetAndGo.WinUI.Rented
     {
         ApiService _serviceRentedBuilding = new ApiService("RentedBuilding");
 
-        //private Model.RentedOffice
-
         public frmRentedBuildings()
         {
             InitializeComponent();

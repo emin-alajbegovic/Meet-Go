@@ -15,11 +15,6 @@ namespace MeetAndGo.WinUI.User
             InitializeComponent();
         }
 
-        private void frmAddUser_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateChildren())

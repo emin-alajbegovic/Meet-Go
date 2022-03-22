@@ -1,5 +1,4 @@
 ﻿using MeetAndGo.Interfaces;
-using MeetAndGo.Model;
 using MeetAndGo.Model.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

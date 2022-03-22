@@ -7,14 +7,6 @@ using System.Collections.Generic;
 
 namespace MeetAndGo.Controllers
 {
-    //public class OfficeController : BaseCRUDController<Model.Office, OfficeSearchObject, OfficeUpsertRequest, OfficeUpsertRequest>
-    //{
-    //    public OfficeController(IOfficeService officeService)
-    //        : base(officeService)
-    //    {
-
-    //    }
-    //}
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]

@@ -7,14 +7,6 @@ using System.Collections.Generic;
 
 namespace MeetAndGo.Controllers
 {
-    //public class UserController : BaseCRUDController<Model.User, UserSearchObject, UserUpsertRequest, UserUpsertRequest>
-    //{
-    //    public UserController(IUserService userService)
-    //        : base(userService)
-    //    {
-
-    //    }
-    //}
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]

@@ -1,6 +1,5 @@
 ﻿using MeetAndGo.Model;
 using MeetAndGo.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MeetAndGo.Controllers
 {
