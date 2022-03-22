@@ -140,11 +140,11 @@
     <Compile Include="Rented\frmRentedOffices.Designer.cs">
       <DependentUpon>frmRentedOffices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report\frmRentedByYear.cs">
+    <Compile Include="Report\frmRentedByUserCount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report\frmRentedByYear.Designer.cs">
-      <DependentUpon>frmRentedByYear.cs</DependentUpon>
+    <Compile Include="Report\frmRentedByUserCount.Designer.cs">
+      <DependentUpon>frmRentedByUserCount.cs</DependentUpon>
     </Compile>
     <Compile Include="User\frmAddUser.cs">
       <SubType>Form</SubType>
@@ -210,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rented\frmRentedOffices.resx">
       <DependentUpon>frmRentedOffices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmRentedByUserCount.resx">
+      <DependentUpon>frmRentedByUserCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>

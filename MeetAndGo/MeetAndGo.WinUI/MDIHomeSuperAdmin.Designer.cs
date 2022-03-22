@@ -80,7 +80,7 @@ namespace MeetAndGo.WinUI
             // 
             this.allRentedBuildingsByYearToolStripMenuItem.Name = "allRentedBuildingsByYearToolStripMenuItem";
             this.allRentedBuildingsByYearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.allRentedBuildingsByYearToolStripMenuItem.Text = "Rented building";
+            this.allRentedBuildingsByYearToolStripMenuItem.Text = "User rented";
             this.allRentedBuildingsByYearToolStripMenuItem.Click += new System.EventHandler(this.allRentedBuildingsByYearToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem

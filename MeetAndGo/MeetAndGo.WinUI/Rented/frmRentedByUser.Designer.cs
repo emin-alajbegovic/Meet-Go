@@ -30,7 +30,7 @@ namespace MeetAndGo.WinUI.Rented
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_Buildings = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dgvBuildings = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,7 +38,7 @@ namespace MeetAndGo.WinUI.Rented
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Buildings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuildings)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -49,28 +49,28 @@ namespace MeetAndGo.WinUI.Rented
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView2);
+            this.groupBox1.Controls.Add(this.dgv_Buildings);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.dgvBuildings);
             this.groupBox1.Location = new System.Drawing.Point(34, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 372);
+            this.groupBox1.Size = new System.Drawing.Size(697, 218);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buildings";
             // 
-            // dataGridView2
+            // dgv_Buildings
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(314, 353);
-            this.dataGridView2.TabIndex = 2;
+            this.dgv_Buildings.AllowUserToAddRows = false;
+            this.dgv_Buildings.AllowUserToDeleteRows = false;
+            this.dgv_Buildings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Buildings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Buildings.Location = new System.Drawing.Point(3, 16);
+            this.dgv_Buildings.Name = "dgv_Buildings";
+            this.dgv_Buildings.ReadOnly = true;
+            this.dgv_Buildings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Buildings.Size = new System.Drawing.Size(691, 199);
+            this.dgv_Buildings.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -82,7 +82,7 @@ namespace MeetAndGo.WinUI.Rented
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(314, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(691, 199);
             this.dataGridView1.TabIndex = 1;
             // 
             // dgvBuildings
@@ -95,7 +95,7 @@ namespace MeetAndGo.WinUI.Rented
             this.dgvBuildings.Name = "dgvBuildings";
             this.dgvBuildings.ReadOnly = true;
             this.dgvBuildings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBuildings.Size = new System.Drawing.Size(314, 353);
+            this.dgvBuildings.Size = new System.Drawing.Size(691, 199);
             this.dgvBuildings.TabIndex = 0;
             // 
             // groupBox2
@@ -103,9 +103,9 @@ namespace MeetAndGo.WinUI.Rented
             this.groupBox2.Controls.Add(this.dgvOffices);
             this.groupBox2.Controls.Add(this.dataGridView4);
             this.groupBox2.Controls.Add(this.dataGridView5);
-            this.groupBox2.Location = new System.Drawing.Point(401, 12);
+            this.groupBox2.Location = new System.Drawing.Point(34, 252);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(320, 372);
+            this.groupBox2.Size = new System.Drawing.Size(697, 229);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Offices";
@@ -120,7 +120,7 @@ namespace MeetAndGo.WinUI.Rented
             this.dgvOffices.Name = "dgvOffices";
             this.dgvOffices.ReadOnly = true;
             this.dgvOffices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOffices.Size = new System.Drawing.Size(314, 353);
+            this.dgvOffices.Size = new System.Drawing.Size(691, 210);
             this.dgvOffices.TabIndex = 2;
             // 
             // dataGridView4
@@ -133,7 +133,7 @@ namespace MeetAndGo.WinUI.Rented
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(314, 353);
+            this.dataGridView4.Size = new System.Drawing.Size(691, 210);
             this.dataGridView4.TabIndex = 1;
             // 
             // dataGridView5
@@ -146,21 +146,21 @@ namespace MeetAndGo.WinUI.Rented
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(314, 353);
+            this.dataGridView5.Size = new System.Drawing.Size(691, 210);
             this.dataGridView5.TabIndex = 0;
             // 
             // frmRentedByUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 401);
+            this.ClientSize = new System.Drawing.Size(770, 505);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRentedByUser";
             this.Text = "frmRentedByUser";
             this.Load += new System.EventHandler(this.frmRentedByUser_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Buildings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuildings)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -175,7 +175,7 @@ namespace MeetAndGo.WinUI.Rented
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvBuildings;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_Buildings;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvOffices;

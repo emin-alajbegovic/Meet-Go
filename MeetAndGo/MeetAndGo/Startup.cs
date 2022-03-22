@@ -69,7 +69,7 @@ namespace MeetAndGo
             services.AddScoped<IReadService<Model.CanceledOffice, object>, BaseReadService<Model.CanceledOffice, Database.CanceledOffice, object>>();
             services.AddScoped<IReadService<Model.OfficeReview, object>, BaseReadService<Model.OfficeReview, Database.OfficeReview, object>>();
 
-
+            services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IUserAccountRoleService, UserAccountRoleService>();
             services.AddScoped<IBuildingService, BuildingService>();
             services.AddScoped<IRentedBuildingService, RentedBuildingService>();

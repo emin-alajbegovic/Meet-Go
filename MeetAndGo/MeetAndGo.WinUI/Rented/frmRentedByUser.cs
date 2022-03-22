@@ -19,7 +19,7 @@ namespace MeetAndGo.WinUI.Rented
         private async void frmRentedByUser_Load(object sender, EventArgs e)
         {
             dgvOffices.DataSource = await _serviceRentedOffices.GetAllRentedByUserId<List<Model.RentedOffice>>(_user.UserId);
-            dgvBuildings.DataSource = await _serviceRentedBuildings.GetAllRentedByUserId<List<Model.RentedBuilding>>(_user.UserId);
+            dgv_Buildings.DataSource = await _serviceRentedBuildings.GetAllRentedByUserId<List<Model.RentedBuilding>>(_user.UserId);
         }
     }
 }
