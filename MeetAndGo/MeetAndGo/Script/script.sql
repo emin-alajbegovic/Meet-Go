@@ -1,4 +1,4 @@
-﻿use meetGo
+﻿use meetgo
 
 select *
 from Role
