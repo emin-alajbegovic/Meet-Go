@@ -1,4 +1,4 @@
-﻿use meetgo
+﻿use meetGo
 
 select *
 from Role
@@ -48,13 +48,13 @@ select *
 from UserAccount
 
 insert into UserAccount
-values('2021-03-03','adin@gmail.com','hashsss','adin','salt22'),('2020-01-01','emin@gmail.com','somehash','emin','salt44')
+values('2021-03-03','testsuper@gmail.com','czEChVihkKv7ORp26KU9waiPB4I=','testsuper','Z3XdFMVVkhSZ6F0oSeQAIw=='),('2020-01-01','test@gmail.com','1v2U7NPT1GYJyZSxzLORV3tGefw=','test','29QivU/mHuHOySauAkKwdA=='),('2020-01-01','guest@gmail.com','TWiruNTB2G2drAV19u7LSNpDu30=','guest','t+5yTpGeQ9HieFeFt95M7w==')
 
 select *
 from [User]
 
 insert into [User]
-values('Adin','Ovcina','111-222-333',1),('Emin','Alajbegovic','444-555-666',2)
+values('Adin','Ovcina','111-222-333',1),('Emin','Alajbegovic','444-555-666',2),('Guest','Alajbegovic','444-555-666',3)
 
 select *
 from BuildingReview
@@ -84,13 +84,13 @@ select *
 from RentedBuilding
 
 insert into RentedBuilding
-values(1,1,'2020-01-02','2021-01-02',1,1,4),(2,2,'2019-04-15','2021-06-18',1,2,7)
+values(1,1,'2020-01-02','2021-01-02',1,1,5.00),(2,2,'2019-04-15','2021-06-18',1,6,7.00)
 
 select *
 from RentedOffice
 
 insert into RentedOffice
-values(1,1,'2020-03-04','2021-02-01',1,1,4),(2,2,'2019-1-21','2021-06-19',1,2,7)
+values(1,1,'2020-03-04','2021-02-01',1,8,2.00),(2,2,'2019-1-21','2021-06-19',1,12,12.00)
 
 select *
 from Transactions
@@ -102,4 +102,4 @@ select *
 from UserAccountRole
 
 insert into UserAccountRole
-values('2021-10-21',1,1),('2018-04-03',2,2)
+values('2021-10-21',1,2),('2018-04-03',2,1),('2018-04-03',2,3)
