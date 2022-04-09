@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MeetAndGo.Database
 {
@@ -11,6 +12,7 @@ namespace MeetAndGo.Database
         public DateTime EndRentalDate { get; set; }
         public bool Rented { get; set; }
         public int Days { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         public virtual Office Office { get; set; }
