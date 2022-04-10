@@ -76,6 +76,7 @@ namespace MeetAndGo
             services.AddScoped<ISimilarBuilding, BuildingUserSimilarService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOfficeService, OfficeService>();
+            services.AddScoped<ISimilarOffice, OfficeUserSimilarService>();
             services.AddScoped<IRentedOfficeService, RentedOfficeService>();
             services.AddScoped<IUserAccountService, UserAccountService>();
 
