@@ -22,6 +22,7 @@ namespace MeetAndGo.Services
 
         public List<Model.Building> GetAll(int id)
         {
+            LoadProducts(id);
             List<Database.BuildingReview> ratingsOfObservedBuildings = _dbContext.BuildingReview.Where(x => x.BuildingId == id).OrderBy(x => x.UserId).ToList();
 
             List<Database.BuildingReview> commonMarks1 = new List<Database.BuildingReview>();
@@ -93,11 +94,11 @@ namespace MeetAndGo.Services
                 return;
             }
 
-            List<Database.Building> listOfSimilarRooms = _dbContext.Building.Where(x => x.Rented == false && x.BuildingId != id).ToList();
+            List<Database.Building> listOfSimilarBuildings = _dbContext.Building.Where(x => x.Rented == false && x.BuildingId != id).ToList();
 
             List<Database.BuildingReview> marks;
 
-            foreach (Database.Building building1 in listOfSimilarRooms)
+            foreach (Database.Building building1 in listOfSimilarBuildings)
             {
                 marks = _dbContext.BuildingReview.Where(x => x.BuildingId == building1.BuildingId).OrderBy(x => x.UserId).ToList();
                 if (marks.Count > 0)
