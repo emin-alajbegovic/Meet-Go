@@ -325,8 +325,14 @@ namespace MeetAndGo.Migrations
                     b.Property<DateTime>("BeginRentalDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Days")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EndRentalDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("Rented")
                         .HasColumnType("bit");
@@ -354,8 +360,14 @@ namespace MeetAndGo.Migrations
                     b.Property<DateTime>("BeginRentalDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Days")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EndRentalDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("Rented")
                         .HasColumnType("bit");

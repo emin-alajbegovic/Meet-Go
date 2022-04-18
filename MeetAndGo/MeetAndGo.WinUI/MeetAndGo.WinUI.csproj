@@ -46,6 +46,7 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
@@ -121,6 +122,30 @@
     <Compile Include="PictureService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rented\frmRentedBuildings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rented\frmRentedBuildings.Designer.cs">
+      <DependentUpon>frmRentedBuildings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rented\frmRentedByUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rented\frmRentedByUser.Designer.cs">
+      <DependentUpon>frmRentedByUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rented\frmRentedOffices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rented\frmRentedOffices.Designer.cs">
+      <DependentUpon>frmRentedOffices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmRentedByUserCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmRentedByUserCount.Designer.cs">
+      <DependentUpon>frmRentedByUserCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +202,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rented\frmRentedBuildings.resx">
+      <DependentUpon>frmRentedBuildings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rented\frmRentedByUser.resx">
+      <DependentUpon>frmRentedByUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rented\frmRentedOffices.resx">
+      <DependentUpon>frmRentedOffices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmRentedByUserCount.resx">
+      <DependentUpon>frmRentedByUserCount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,8 +243,6 @@
       <Name>MeetAndGo.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rented\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

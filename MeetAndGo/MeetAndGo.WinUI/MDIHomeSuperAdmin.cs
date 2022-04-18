@@ -1,4 +1,5 @@
-﻿using MeetAndGo.WinUI.User;
+﻿using MeetAndGo.WinUI.Report;
+using MeetAndGo.WinUI.User;
 using System.Windows.Forms;
 
 namespace MeetAndGo.WinUI
@@ -18,6 +19,12 @@ namespace MeetAndGo.WinUI
         private void addUserToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             frmAddUser frm = new frmAddUser();
+
+            frm.ShowDialog();
+        }
+        private void allRentedBuildingsByYearToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmRentedByUserCount frm = new frmRentedByUserCount();
 
             frm.ShowDialog();
         }

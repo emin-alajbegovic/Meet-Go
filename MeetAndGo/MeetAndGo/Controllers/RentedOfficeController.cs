@@ -1,10 +1,53 @@
 ﻿using MeetAndGo.Interfaces;
-using MeetAndGo.Model;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MeetAndGo.Model.Requests;
 
 namespace MeetAndGo.Controllers
 {
-    public class RentedOfficeController : BaseReadController<Model.RentedOffice, object>
+    [ApiController]
+    [Authorize]
+    [Route("api/[controller]")]
+    public class RentedOfficeController : ControllerBase
     {
-        public RentedOfficeController(IReadService<RentedOffice, object> service) : base(service) { }
+        private readonly IRentedOfficeService _service;
+        public RentedOfficeController(IRentedOfficeService service) { _service = service; }
+
+        [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpGet("all")]
+        public async Task<IEnumerable<Model.RentedOffice>> GetAllRentedOffices()
+        {
+            return await _service.GetAllRentedOffices();
+        }
+
+        [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpGet("user/{userId}")]
+        public async Task<IEnumerable<Model.RentedOffice>> GetAllRentedOfficesByUserId(int userId)
+        {
+            return await _service.GetAllRentedOfficesByUserId(userId);
+        }
+
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        public Model.RentedOffice GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        [HttpPut("{id}")]
+        public Model.RentedOffice Update(int id, [FromBody] RentedOfficeUpdateRequest request)
+        {
+            return _service.Update(id, request);
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        public Model.RentedOffice Delete(int id)
+        {
+            return _service.Delete(id);
+        }
     }
 }

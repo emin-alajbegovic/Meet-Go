@@ -88,7 +88,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Parking.TabIndex = 13;
             this.check_Parking.Text = "Parking";
             this.check_Parking.UseVisualStyleBackColor = true;
-            this.check_Parking.Validating += new System.ComponentModel.CancelEventHandler(this.check_Parking_Validating);
             // 
             // check_Cameras
             // 
@@ -99,7 +98,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Cameras.TabIndex = 12;
             this.check_Cameras.Text = "Cameras";
             this.check_Cameras.UseVisualStyleBackColor = true;
-            this.check_Cameras.Validating += new System.ComponentModel.CancelEventHandler(this.check_Cameras_Validating);
             // 
             // check_Security
             // 
@@ -110,7 +108,6 @@ namespace MeetAndGo.WinUI.Building
             this.check_Security.TabIndex = 11;
             this.check_Security.Text = "Security";
             this.check_Security.UseVisualStyleBackColor = true;
-            this.check_Security.Validating += new System.ComponentModel.CancelEventHandler(this.check_Security_Validating);
             // 
             // txt_OfficeNumbers
             // 

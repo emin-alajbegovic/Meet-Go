@@ -39,12 +39,12 @@ namespace MeetAndGo.WinUI
             return true;
         }
 
-        public static bool RequiredCombo(ComboBox cmb, ErrorProvider err, string message)
+        public static bool RequiredCombo(ComboBox cmb, CancelEventArgs e, ErrorProvider err, string message)
         {
             if (string.IsNullOrWhiteSpace(cmb.Text))
             {
                 err.SetError(cmb, message);
-                return false;
+                e.Cancel = true;
             }
             else
                 err.SetError(cmb, null);

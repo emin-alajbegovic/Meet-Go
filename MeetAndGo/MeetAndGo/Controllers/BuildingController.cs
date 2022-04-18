@@ -7,16 +7,6 @@ using System.Collections.Generic;
 
 namespace MeetAndGo.Controllers
 {
-
-    //public class BuildingController : BaseCRUDController<Model.Building, BuildingSearchObject, BuildingUpsertRequest, BuildingUpsertRequest>
-    //{
-    //    public BuildingController(IBuildingService buildingService)
-    //        : base(buildingService)
-    //    {
-
-    //    }
-    //}
-
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]
@@ -38,22 +28,22 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
-        [HttpPost]
         [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpPost]
         public Model.Building Insert([FromBody] BuildingUpsertRequest request)
         {
             return _service.Insert(request);
         }
 
-        [HttpPut("{id}")]
         [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpPut("{id}")]
         public Model.Building Update(int id, [FromBody] BuildingUpsertRequest request)
         {
             return _service.Update(id, request);
         }
 
-        [HttpDelete("{id}")]
         [Authorize(Roles = "SuperAdmin")]
+        [HttpDelete("{id}")]
         public Model.Building Delete(int id)
         {
             return _service.Delete(id);

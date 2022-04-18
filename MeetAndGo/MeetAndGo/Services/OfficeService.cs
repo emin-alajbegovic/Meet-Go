@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace MeetAndGo.Services
 {
-    public class OfficeService :CRUDService<Model.Office, Database.Office, OfficeSearchObject,OfficeUpsertRequest, OfficeUpsertRequest>, IOfficeService
+    public class OfficeService : CRUDService<Model.Office, Database.Office, OfficeSearchObject, OfficeUpsertRequest, OfficeUpsertRequest>, IOfficeService
     {
         public OfficeService(meetGoContext dbContext, IMapper mapper)
             : base(dbContext, mapper)

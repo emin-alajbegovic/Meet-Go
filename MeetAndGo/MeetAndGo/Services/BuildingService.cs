@@ -4,10 +4,8 @@ using MeetAndGo.Interfaces;
 using MeetAndGo.Model.Requests;
 using MeetAndGo.Model.SearchObject;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MeetAndGo.Services
 {

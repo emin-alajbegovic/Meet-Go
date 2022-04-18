@@ -31,9 +31,10 @@ namespace MeetAndGo.Services
                 entity = entity.Where(x => x.Email == search.Email);
             }
 
-            var entities = entity.ToList();
+            var entities = entity.Include("UserAccountRole.Role").ToList();
             return _mapper.Map<IEnumerable<Model.UserAccount>>(entities);
         }
+
         public override Model.UserAccount Insert(UserAccountUpsertRequest request)
         {
             var entity = _mapper.Map<Database.UserAccount>(request);

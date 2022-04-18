@@ -39,11 +39,9 @@ namespace MeetAndGo.WinUI
             this.officeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addOfficeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewRentedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayBuildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBuildingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentedBuildingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.officesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,8 +99,7 @@ namespace MeetAndGo.WinUI
             // 
             this.officeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayToolStripMenuItem1,
-            this.addOfficeToolStripMenuItem,
-            this.viewRentedToolStripMenuItem});
+            this.addOfficeToolStripMenuItem});
             this.officeToolStripMenuItem.Name = "officeToolStripMenuItem";
             this.officeToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.officeToolStripMenuItem.Text = "Offices";
@@ -121,18 +118,11 @@ namespace MeetAndGo.WinUI
             this.addOfficeToolStripMenuItem.Text = "Add Office";
             this.addOfficeToolStripMenuItem.Click += new System.EventHandler(this.addOfficeToolStripMenuItem_Click);
             // 
-            // viewRentedToolStripMenuItem
-            // 
-            this.viewRentedToolStripMenuItem.Name = "viewRentedToolStripMenuItem";
-            this.viewRentedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewRentedToolStripMenuItem.Text = "Rented Offices";
-            // 
             // buildingsToolStripMenuItem
             // 
             this.buildingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayBuildingsToolStripMenuItem,
-            this.addBuildingToolStripMenuItem,
-            this.rentedBuildingsToolStripMenuItem});
+            this.addBuildingToolStripMenuItem});
             this.buildingsToolStripMenuItem.Name = "buildingsToolStripMenuItem";
             this.buildingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.buildingsToolStripMenuItem.Text = "Buildings";
@@ -140,7 +130,7 @@ namespace MeetAndGo.WinUI
             // displayBuildingsToolStripMenuItem
             // 
             this.displayBuildingsToolStripMenuItem.Name = "displayBuildingsToolStripMenuItem";
-            this.displayBuildingsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.displayBuildingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayBuildingsToolStripMenuItem.Text = "Display Buildings";
             this.displayBuildingsToolStripMenuItem.Click += new System.EventHandler(this.displayBuildingsToolStripMenuItem_Click);
             // 
@@ -150,12 +140,6 @@ namespace MeetAndGo.WinUI
             this.addBuildingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addBuildingToolStripMenuItem.Text = "Add Building";
             this.addBuildingToolStripMenuItem.Click += new System.EventHandler(this.addBuildingToolStripMenuItem_Click);
-            // 
-            // rentedBuildingsToolStripMenuItem
-            // 
-            this.rentedBuildingsToolStripMenuItem.Name = "rentedBuildingsToolStripMenuItem";
-            this.rentedBuildingsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.rentedBuildingsToolStripMenuItem.Text = "Rented Buildings";
             // 
             // rentedToolStripMenuItem
             // 
@@ -169,14 +153,16 @@ namespace MeetAndGo.WinUI
             // buildingsToolStripMenuItem1
             // 
             this.buildingsToolStripMenuItem1.Name = "buildingsToolStripMenuItem1";
-            this.buildingsToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.buildingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.buildingsToolStripMenuItem1.Text = "Buildings";
+            this.buildingsToolStripMenuItem1.Click += new System.EventHandler(this.buildingsToolStripMenuItem1_Click);
             // 
             // officesToolStripMenuItem
             // 
             this.officesToolStripMenuItem.Name = "officesToolStripMenuItem";
-            this.officesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.officesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.officesToolStripMenuItem.Text = "Offices";
+            this.officesToolStripMenuItem.Click += new System.EventHandler(this.officesToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -214,10 +200,8 @@ namespace MeetAndGo.WinUI
         private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem officeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem viewRentedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buildingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayBuildingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rentedBuildingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addOfficeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBuildingToolStripMenuItem;

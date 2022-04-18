@@ -71,6 +71,10 @@ namespace MeetAndGo.WinUI.Building
             }
         }
 
+        private bool txtPicture_Validating()
+        {
+            return Validator.RequiredFieldPicture(txt_Picture, errorProv, Properties.Resources.RequiredField);
+        }
         private void txt_Name_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Validator.RequiredFieldTxt(sender as TextBox, e, errorProv, Properties.Resources.RequiredField);
@@ -91,21 +95,6 @@ namespace MeetAndGo.WinUI.Building
             Validator.RequiredFieldTxt(sender as TextBox, e, errorProv, Properties.Resources.RequiredField);
         }
 
-        private void cmb_Countries_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldComboBox(sender as ComboBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
-        private void cmb_Cities_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldComboBox(sender as ComboBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
-        private void cmb_TypeOfBuilding_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldComboBox(sender as ComboBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
         private void txt_Floors_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Validator.RequiredFieldTxt(sender as TextBox, e, errorProv, Properties.Resources.RequiredField);
@@ -120,6 +109,15 @@ namespace MeetAndGo.WinUI.Building
         {
             Validator.RequiredFieldTxt(sender as TextBox, e, errorProv, Properties.Resources.RequiredField);
         }
+        private void cmb_Cities_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_Cities, e, errorProv, Properties.Resources.RequiredField);
+        }
+
+        private void cmb_TypeOfBuilding_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.RequiredCombo(cmb_TypeOfBuilding, e, errorProv, Properties.Resources.RequiredField);
+        }
 
         private void btn_LoadImage_Click(object sender, System.EventArgs e)
         {
@@ -127,29 +125,6 @@ namespace MeetAndGo.WinUI.Building
 
             if (result == DialogResult.OK)
                 OpenFileDialogHelper.LoadPicture(ofdPicture, pbx_Picture, txt_Picture);
-        }
-        private bool txtPicture_Validating()
-        {
-            return Validator.RequiredFieldPicture(txt_Picture, errorProv, Properties.Resources.RequiredField);
-        }
-        private void check_Security_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldCheckListBox(sender as CheckedListBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
-        private void check_Cameras_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldCheckListBox(sender as CheckedListBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
-        private void check_Parking_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Validator.RequiredFieldCheckListBox(sender as CheckedListBox, e, errorProv, Properties.Resources.RequiredField);
-        }
-
-        private bool pbx_Picture_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            return Validator.RequiredFieldPicture(txt_Picture, errorProv, Properties.Resources.RequiredField);
         }
     }
 }

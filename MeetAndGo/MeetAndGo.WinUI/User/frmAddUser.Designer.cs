@@ -184,7 +184,6 @@ namespace MeetAndGo.WinUI.User
             this.Name = "frmAddUser";
             this.Text = "frmAddUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddUser_FormClosing);
-            this.Load += new System.EventHandler(this.frmAddUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
