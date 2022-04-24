@@ -14,11 +14,8 @@ class Register extends StatelessWidget {
   Future<void> RegisterUser() async {
     Map<String, String> body = {
       'email': APIService.email,
-      'korisnickoIme': APIService.username,
-      'sifra': APIService.confirmPassword,
-      'telefon': '',
-      'ime': '',
-      'prezime': ''
+      'username': APIService.username,
+      'password': APIService.confirmPassword,
     };
     result = await APIService.Register('UserAccount', body);
   }
@@ -31,10 +28,10 @@ class Register extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/background.png'),
+                  image: AssetImage('assets/background.jpg'),
                   fit: BoxFit.cover,
                   colorFilter:
-                      ColorFilter.mode(Colors.red, BlendMode.darken))),
+                      ColorFilter.mode(Colors.black54, BlendMode.darken))),
         ),
         Form(
           key: counterKey,
@@ -132,7 +129,7 @@ class Register extends StatelessWidget {
                               }
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text('Registration done!')),
+                                    content: Text('Registration completed!')),
                               );
                             }
                           },

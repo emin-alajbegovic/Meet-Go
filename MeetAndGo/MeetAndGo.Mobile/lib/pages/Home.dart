@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/services/APIService.dart';
 
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -19,56 +18,46 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              child: Text(
-                  ''
-                // 'Side menu',
-                // style: TextStyle(color: Colors.black45, fontSize: 25),
-              ),
+              child: Text(''
+                  // 'Side menu',
+                  // style: TextStyle(color: Colors.black45, fontSize: 25),
+                  ),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.fitHeight,
-                      image: AssetImage('assets/heartPaw.png'))),
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage('assets/office2.jpg'))),
             ),
             ListTile(
-                leading: Icon(Icons.pets),
-                title: Text('Životinje'),
+                leading: Icon(Icons.location_city),
+                title: Text('Building'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed('/zivotinje');
-                }),
-            ListTile(
-              leading: Icon(Icons.verified_user),
-              title: Text('Profil'),
-              onTap: () => {
-                Navigator.of(context).popAndPushNamed('/profil')
-              },
-            ),
-            ListTile(
-                leading: Icon(Icons.favorite),
-                title: Text('Akcije'),
-                onTap: () {
-                  Navigator.of(context).popAndPushNamed('/akcije');
+                  Navigator.of(context).popAndPushNamed('/building');
                 }),
             ListTile(
                 leading: Icon(Icons.attach_money),
-                title: Text('Moje Donacije'),
+                title: Text('Office'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed('/mojedonacije');
+                  Navigator.of(context).popAndPushNamed('/office');
                 }),
             ListTile(
-                leading: Icon(Icons.volunteer_activism),
-                title: Text('Prijavi životinju'),
+                leading: Icon(Icons.assignment_turned_in_sharp),
+                title: Text('Rented'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed('/prijava');
+                  Navigator.of(context).popAndPushNamed('/rented');
                 }),
+            ListTile(
+              leading: Icon(Icons.location_history),
+              title: Text('Profile'),
+              onTap: () => {Navigator.of(context).popAndPushNamed('/profile')},
+            ),
             ListTile(
                 leading: Icon(Icons.exit_to_app),
                 title: Text('Logout'),
                 onTap: () => {
-                  Navigator.of(context).popAndPushNamed('/login'),
-                  APIService.username = "",
-                  APIService.password = "",
-                }
-            ),
+                      Navigator.of(context).popAndPushNamed('/login'),
+                      APIService.username = "",
+                      APIService.password = "",
+                    }),
           ],
         ),
       ),

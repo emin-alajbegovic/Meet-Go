@@ -48,13 +48,13 @@ class PasswordInput extends StatelessWidget {
               border: UnderlineInputBorder(
                 borderSide: BorderSide(width: 1, color: Colors.black),
               ),
-              errorStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 14),
+              errorStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 14),
               prefixIcon: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Icon(
                   icon.icon,
                   size: 28,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
               hintText: hint,

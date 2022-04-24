@@ -13,13 +13,13 @@ namespace MeetAndGo.Controllers
     //    public UserAccountController(IUserAccountService userAccountService) : base(userAccountService) { }
     //}
     [ApiController]
-    [Authorize]
     [Route("api/[controller]")]
     public class UserAccountController : ControllerBase
     {
         private readonly IUserAccountService _service;
         public UserAccountController(IUserAccountService service) { _service = service; }
 
+        [Authorize]
         [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet]
         public IEnumerable<Model.UserAccount> Get([FromQuery] UserAccountSearchObject request)
@@ -27,6 +27,7 @@ namespace MeetAndGo.Controllers
             return _service.Get(request);
         }
 
+        [Authorize]
         [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("Username/{username}")]
         public async Task<Model.UserAccount> GetByUsername(string username)
@@ -34,6 +35,7 @@ namespace MeetAndGo.Controllers
             return await _service.GetUserAccountByUsername(username);
         }
 
+        [Authorize]
         [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("{id}")]
         public Model.UserAccount GetById(int id)
@@ -41,13 +43,13 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpPost]
         public Model.UserAccount Insert([FromBody] UserAccountUpsertRequest request)
         {
             return _service.Insert(request);
         }
 
+        [Authorize]
         [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpPut("{id}")]
         public Model.UserAccount Update(int id, [FromBody] UserAccountUpsertRequest request)

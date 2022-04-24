@@ -29,10 +29,9 @@ class APIService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
     );
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       return true;
-    }
-    else
+    } else
       return null;
   }
 
@@ -45,7 +44,8 @@ class APIService {
       },
       body: jsonEncode(obj),
     );
-    print(response.statusCode);
+    if (response.statusCode == 200) return json.decode(response.body);
+    return null;
   }
 
   // ignore: non_constant_identifier_names
@@ -65,17 +65,16 @@ class APIService {
 
   // ignore: non_constant_identifier_names
   static Future<dynamic> Put(String route, int id, dynamic obj) async {
-    String baseUrl = "http://10.0.2.2:5001/api/" + route + "?id=" + id.toString();
+    String baseUrl =
+        "http://10.0.2.2:5001/api/" + route + "?id=" + id.toString();
     final String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
-    final response = await http.put(
-        Uri.parse(baseUrl),
+    final response = await http.put(Uri.parse(baseUrl),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': basicAuth
         },
-        body: jsonEncode(obj)
-    );
+        body: jsonEncode(obj));
   }
 
   // ignore: non_constant_identifier_names
@@ -109,7 +108,6 @@ class APIService {
     if (response.statusCode == 200) return json.decode(response.body);
     return null;
   }
-
 
   // ignore: non_constant_identifier_names
   static Future<dynamic> GetById(String route, int id) async {

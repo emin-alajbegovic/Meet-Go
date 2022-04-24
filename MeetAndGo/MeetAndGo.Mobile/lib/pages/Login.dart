@@ -30,7 +30,12 @@ class _LoginState extends State<Login> {
     return Stack(
       children: [
         Container(
-          color: Colors.white,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/office3.jpg'),
+                  fit: BoxFit.cover,
+                  colorFilter:
+                  ColorFilter.mode(Colors.black54, BlendMode.darken))),
         ),
         Form(
           key: _formKeyLogin,
@@ -60,7 +65,7 @@ class _LoginState extends State<Login> {
                       width: size.width * 0.8,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: Colors.blueGrey[100],
+                        color: Colors.blueGrey[600],
                       ),
                       child: TextButton(
                         onPressed: () async {
@@ -79,7 +84,7 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'Login',
                           style: kBodyText.copyWith(
-                              fontWeight: FontWeight.bold, color: Colors.black),
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ),
@@ -118,7 +123,7 @@ class _LoginState extends State<Login> {
                     ),
                     decoration: BoxDecoration(
                         border: Border(
-                            bottom: BorderSide(width: 1, color: Colors.black))),
+                            bottom: BorderSide(width: 1, color: Colors.white))),
                   ),
                 ),
                 SizedBox(
