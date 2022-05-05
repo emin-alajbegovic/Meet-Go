@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
                   image: AssetImage('assets/office3.jpg'),
                   fit: BoxFit.cover,
                   colorFilter:
-                  ColorFilter.mode(Colors.black54, BlendMode.darken))),
+                      ColorFilter.mode(Colors.black54, BlendMode.darken))),
         ),
         Form(
           key: _formKeyLogin,

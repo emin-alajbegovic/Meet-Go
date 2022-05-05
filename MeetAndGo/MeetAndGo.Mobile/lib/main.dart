@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/pages/Login.dart';
+import 'package:meet_go_mobile/pages/Loading.dart';
+import 'package:meet_go_mobile/pages/Office.dart';
 import 'package:meet_go_mobile/pages/Home.dart';
 
 
@@ -20,6 +22,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/login': (context) => Login(),
         '/home': (context) => Home(),
+        '/loading': (context) => Loading(),
+        '/office': (context) => Office(),
       },
     );
   }

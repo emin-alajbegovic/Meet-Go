@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 class Loading extends StatefulWidget {
   @override
   _LoadingState createState() => _LoadingState();
