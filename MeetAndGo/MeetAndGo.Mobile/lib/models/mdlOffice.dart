@@ -43,7 +43,7 @@ class mdlOffice {
         description: json["description"],
         area: json["area"],
         picture: bytes,
-        price: int.parse(json["price"].toString()),
+        price: json["price"],
         rented: json["rented"],
         numberOfFloors: json["numberOfFloors"],
         cityId: json["cityId"],

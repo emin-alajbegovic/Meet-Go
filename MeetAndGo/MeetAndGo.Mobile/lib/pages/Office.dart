@@ -54,7 +54,7 @@ class _OfficeState extends State<Office> {
                   Uint8List.fromList(office.picture),
                   fit: BoxFit.fill,
                   height: 200,
-                  width: 150,
+                  width: 250,
                 )),
             Padding(
               padding: const EdgeInsets.all(13.5),

@@ -88,17 +88,6 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () => {
-                        Navigator.pushNamed(context, '/forgotpassword'),
-                        APIService.username = '',
-                        APIService.password = ''
-                      },
-                      child: Text(
-                        'Forgot password?',
-                        style: kBodyText,
-                      ),
-                    ),
                     SizedBox(
                       height: 25,
                     ),
