@@ -1,15 +1,15 @@
-class mdlTypeOfOffice {
-  final int typeOfOfficeId;
+class mdlTypeOfBuilding {
+  final int typeOfBuildingId;
   final String name;
 
-  mdlTypeOfOffice({
-    required this.typeOfOfficeId,
+  mdlTypeOfBuilding({
+    required this.typeOfBuildingId,
     required this.name,
   });
 
-  factory mdlTypeOfOffice.fromJson(Map<String, dynamic> json) {
-    return mdlTypeOfOffice(
-      typeOfOfficeId: json["typeOfOfficeId"],
+  factory mdlTypeOfBuilding.fromJson(Map<String, dynamic> json) {
+    return mdlTypeOfBuilding(
+      typeOfBuildingId: json["typeOfBuildingId"],
       name: json["name"],
     );
   }

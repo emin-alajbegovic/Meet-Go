@@ -71,7 +71,9 @@ class OfficeDetails extends StatelessWidget {
               child: Text("Rent"),
               textColor: Colors.white,
               color: Colors.green,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(content).popAndPushNamed('/officerent');
+              },
             ),
           ],
         ),

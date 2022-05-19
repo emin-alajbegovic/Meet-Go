@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-class mdlOffice {
-  final int officeId;
+class mdlBuilding {
+  final int buildingId;
   final String name;
   final String address;
   final String description;
@@ -11,13 +11,15 @@ class mdlOffice {
   final bool rented;
   final int numberOfFloors;
   final int cityId;
-  final int typeOfOfficeId;
+  final int typeOfBuildingId;
+  final int numberOfOffices;
   final bool isDeleted;
-  final bool parking;
+  final bool security;
   final bool cameras;
+  final bool parking;
 
-  mdlOffice({
-    required this.officeId,
+  mdlBuilding({
+    required this.buildingId,
     required this.name,
     required this.address,
     required this.description,
@@ -27,17 +29,19 @@ class mdlOffice {
     required this.rented,
     required this.numberOfFloors,
     required this.cityId,
-    required this.typeOfOfficeId,
+    required this.typeOfBuildingId,
+    required this.numberOfOffices,
     required this.isDeleted,
-    required this.parking,
+    required this.security,
     required this.cameras,
+    required this.parking,
   });
 
-  factory mdlOffice.fromJson(Map<String, dynamic> json) {
+  factory mdlBuilding.fromJson(Map<String, dynamic> json) {
     String stringByte = json["picture"] as String;
     List<int> bytes = base64.decode(stringByte);
-    return mdlOffice(
-        officeId: int.parse(json["officeId"].toString()),
+    return mdlBuilding(
+        buildingId: int.parse(json["buildingId"].toString()),
         name: json["name"],
         address: json["adress"],
         description: json["description"],
@@ -47,9 +51,11 @@ class mdlOffice {
         rented: json["rented"],
         numberOfFloors: json["numberOfFloors"],
         cityId: json["cityId"],
-        typeOfOfficeId: json["typeOfOfficeId"],
+        typeOfBuildingId: json["typeOfBuildingId"],
+        numberOfOffices: json["numberOfOffices"],
         isDeleted: json["isDeleted"],
-        parking: json["parking"],
-        cameras: json["cameras"]);
+        security: json["security"],
+        cameras: json["cameras"],
+        parking: json["parking"]);
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meet_go_mobile/models/mdlBuilding.dart';
 import 'package:meet_go_mobile/models/mdlCity.dart';
-import 'package:meet_go_mobile/models/mdlOffice.dart';
-import 'package:meet_go_mobile/models/mdlTypeOfOffice.dart';
+import 'package:meet_go_mobile/models/mdlTypeOfBuilding.dart';
 import 'package:meet_go_mobile/services/APIService.dart';
 import 'dart:typed_data';
 
-class OfficeDetails extends StatelessWidget {
-  final mdlOffice product;
+class BuildingDetails extends StatelessWidget {
+  final mdlBuilding product;
 
   Future<mdlCity> fetchCity() async {
     var city = await APIService.GetById('City', product.cityId);
@@ -14,20 +14,20 @@ class OfficeDetails extends StatelessWidget {
     return model;
   }
 
-  Future<mdlTypeOfOffice> fetchTypeOfOffice() async {
-    var typeOfOffice =
-        await APIService.GetById('TypeOfOffice', product.typeOfOfficeId);
-    mdlTypeOfOffice model = mdlTypeOfOffice.fromJson(typeOfOffice);
+  Future<mdlTypeOfBuilding> fetchTypeOfBuilding() async {
+    var typeOfBuilding =
+        await APIService.GetById('TypeOfBuilding', product.typeOfBuildingId);
+    mdlTypeOfBuilding model = mdlTypeOfBuilding.fromJson(typeOfBuilding);
     return model;
   }
 
-  const OfficeDetails({Key? key, required this.product}) : super(key: key);
+  const BuildingDetails({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Office details'),
+          title: Text('Building details'),
         ),
         body: Main(dynamic, dynamic));
   }
@@ -128,7 +128,7 @@ class OfficeDetails extends StatelessWidget {
             ),
             TableRow(children: [
               Text(
-                'Type of office',
+                'Type of building',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 textAlign: TextAlign.center,
               ),
@@ -140,10 +140,10 @@ class OfficeDetails extends StatelessWidget {
             ]),
             TableRow(
               children: [
-                FutureBuilder<mdlTypeOfOffice>(
-                  future: fetchTypeOfOffice(),
+                FutureBuilder<mdlTypeOfBuilding>(
+                  future: fetchTypeOfBuilding(),
                   builder: (BuildContext context,
-                      AsyncSnapshot<mdlTypeOfOffice> snapshot) {
+                      AsyncSnapshot<mdlTypeOfBuilding> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
                         child: Text("Loading..."),
@@ -161,7 +161,7 @@ class OfficeDetails extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 17),
                         ),
-                        padding: EdgeInsets.fromLTRB(55, 10, 10, 10),
+                        padding: EdgeInsets.fromLTRB(65, 10, 10, 10),
                       );
                     }
                   },

@@ -121,4 +121,17 @@ class APIService {
     if (response.statusCode == 200) return json.decode(response.body);
     return null;
   }
+
+  // ignore: non_constant_identifier_names
+  static Future<dynamic> GetByUsername(String route, String username) async {
+    String baseUrl = "http://10.0.2.2:5001/api/" + route + "/Username/" + username;
+    final String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    final response = await http.get(
+      Uri.parse(baseUrl),
+      headers: {HttpHeaders.authorizationHeader: basicAuth},
+    );
+    if (response.statusCode == 200) return json.decode(response.body);
+    return null;
+  }
 }

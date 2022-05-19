@@ -28,7 +28,6 @@ namespace MeetAndGo.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet("Username/{username}")]
         public async Task<Model.UserAccount> GetByUsername(string username)
         {

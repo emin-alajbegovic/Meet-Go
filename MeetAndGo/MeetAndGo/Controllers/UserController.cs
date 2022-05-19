@@ -4,6 +4,7 @@ using MeetAndGo.Model.SearchObject;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MeetAndGo.Controllers
 {
@@ -48,6 +49,13 @@ namespace MeetAndGo.Controllers
         public Model.User Delete(int id)
         {
             return _service.Delete(id);
+        }
+
+        [Authorize]
+        [HttpGet("Useraccount/{id}")]
+        public async Task<Model.User> GetByUserAccountId(int id)
+        {
+            return await _service.GetUserByUserAccountId(id);
         }
     }
 }

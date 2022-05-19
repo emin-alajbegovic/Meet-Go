@@ -29,6 +29,12 @@ class _HomeState extends State<Home> {
             ),
             ListTile(
                 leading: Icon(Icons.location_city),
+                title: Text('Office rent'),
+                onTap: () {
+                  Navigator.of(context).popAndPushNamed('/officerent');
+                }),
+            ListTile(
+                leading: Icon(Icons.location_city),
                 title: Text('Building'),
                 onTap: () {
                   Navigator.of(context).popAndPushNamed('/building');
@@ -41,15 +47,16 @@ class _HomeState extends State<Home> {
                 }),
             ListTile(
                 leading: Icon(Icons.assignment_turned_in_sharp),
-                title: Text('Rented'),
+                title: Text('Rented Office'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed('/rented');
+                  Navigator.of(context).popAndPushNamed('/rentedoffice');
                 }),
             ListTile(
-              leading: Icon(Icons.location_history),
-              title: Text('Profile'),
-              onTap: () => {Navigator.of(context).popAndPushNamed('/profile')},
-            ),
+                leading: Icon(Icons.assignment_turned_in_sharp),
+                title: Text('Rented Building'),
+                onTap: () {
+                  Navigator.of(context).popAndPushNamed('/rentedbuilding');
+                }),
             ListTile(
                 leading: Icon(Icons.exit_to_app),
                 title: Text('Logout'),
