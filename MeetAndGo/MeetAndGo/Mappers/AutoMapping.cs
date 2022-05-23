@@ -46,6 +46,9 @@ namespace MeetAndGo.Mappers
 
             CreateMap<OfficeUpsertRequest, Database.Office>();
             CreateMap<BuildingUpsertRequest, Database.Building>();
+            CreateMap<OfficeUpsertRequest, Database.Office>();
+            CreateMap<RentedOfficeRequest, Database.RentedOffice>();
+            CreateMap<RentedBuildingRequest, Database.RentedBuilding>();
             CreateMap<RentedOfficeUpdateRequest, Database.RentedOffice>();
             CreateMap<RentedBuildingUpdateRequest, Database.RentedBuilding>();
             CreateMap<UserUpsertRequest, Database.User>();

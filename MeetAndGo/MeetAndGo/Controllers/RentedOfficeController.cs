@@ -36,6 +36,13 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
+        [Authorize]
+        [HttpPost]
+        public Model.RentedOffice Insert([FromBody] RentedOfficeRequest request)
+        {
+            return _service.Insert(request);
+        }
+
         [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPut("{id}")]
         public Model.RentedOffice Update(int id, [FromBody] RentedOfficeUpdateRequest request)

@@ -36,6 +36,13 @@ namespace MeetAndGo.Controllers
             return await _service.GetAllRentedBuildingsByUserId(userId);
         }
 
+        [Authorize]
+        [HttpPost]
+        public Model.RentedBuilding Insert([FromBody] RentedBuildingRequest request)
+        {
+            return _service.Insert(request);
+        }
+
         [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPut("{id}")]
         public Model.RentedBuilding Update(int id, [FromBody] RentedBuildingUpdateRequest request)

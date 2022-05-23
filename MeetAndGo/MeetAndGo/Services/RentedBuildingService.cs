@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MeetAndGo.Services
 {
-    public class RentedBuildingService : CRUDService<Model.RentedBuilding, Database.RentedBuilding, object, object, Model.Requests.RentedBuildingUpdateRequest>, IRentedBuildingService
+    public class RentedBuildingService : CRUDService<Model.RentedBuilding, Database.RentedBuilding, object, Model.Requests.RentedBuildingRequest, Model.Requests.RentedBuildingUpdateRequest>, IRentedBuildingService
     {
         public RentedBuildingService(meetGoContext dbContext, IMapper mapper) : base(dbContext, mapper) { }
 
