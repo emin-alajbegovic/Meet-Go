@@ -29,10 +29,10 @@ class OfficeDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text('Office details'),
         ),
-        body: Main(dynamic, dynamic));
+        body: Main(dynamic, context));
   }
 
-  Widget Main(widget, content) {
+  Widget Main(widget, BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Column(children: [
@@ -61,7 +61,7 @@ class OfficeDetails extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-          child: MyWidget(dynamic, dynamic),
+          child: MyWidget(dynamic, context),
         ),
         ButtonBar(
           alignment: MainAxisAlignment.center,
@@ -72,7 +72,30 @@ class OfficeDetails extends StatelessWidget {
               textColor: Colors.white,
               color: Colors.green,
               onPressed: () {
-                Navigator.of(content).popAndPushNamed('/officerent');
+                showDialog(
+                    context: context,
+                    builder:(BuildContext context)=>AlertDialog(
+                      title: Text('Rent Building'),
+                      content: SingleChildScrollView(
+                        child: ListBody(
+                          children: const <Widget>[
+                            Text('This is a demo alert dialog.'),
+                            Text('Would you like to approve of this message?'),
+                          ],
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          child:Text('Cancel'),
+                          onPressed: ()=>Navigator.pop(context),
+                        ),
+                        TextButton(
+                          child:Text('Pay with card'),
+                          onPressed: ()=>Navigator.pop(context),
+                        )
+                      ],
+                    )
+                );
               },
             ),
           ],
@@ -81,7 +104,7 @@ class OfficeDetails extends StatelessWidget {
     );
   }
 
-  Widget MyWidget(widget, content) {
+  Widget MyWidget(widget, BuildContext context) {
     return Container(
       padding: EdgeInsets.only(bottom: 10),
       child: Center(
