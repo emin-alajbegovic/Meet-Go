@@ -52,10 +52,10 @@ namespace MeetAndGo.Controllers
         }
 
         [Authorize]
-        [HttpGet("Useraccount/{id}")]
-        public async Task<Model.User> GetByUserAccountId(int id)
+        [HttpGet("Username/{username}")]
+        public async Task<IEnumerable<Model.SearchObject.UserUsernameSearchObject>> GetUserByUserAccountUsername(string username)
         {
-            return await _service.GetUserByUserAccountId(id);
+            return await _service.GetUserByUserAccountUsername(username);
         }
     }
 }

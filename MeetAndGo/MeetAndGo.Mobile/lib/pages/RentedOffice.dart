@@ -14,9 +14,7 @@ class RentedOffice extends StatefulWidget {
 var loggedUser;
 
 void fetchUser() async {
-  var user = await APIService.GetByUsername('UserAccount', APIService.username );
-  print(APIService.username);
-  print(user);
+  var user = await APIService.GetByUsername('User', APIService.username );
   loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
 }
 
@@ -29,7 +27,7 @@ class _RentedOfficeState extends State<RentedOffice> {
     );
   }
 
-  Widget bodyWidget() {
+ Widget bodyWidget() {
     return FutureBuilder<List<mdlRentedOffice>>(
       future: GetRentedOffices(),
       builder: (BuildContext context, AsyncSnapshot<List<mdlRentedOffice>> snapshot) {
@@ -37,7 +35,7 @@ class _RentedOfficeState extends State<RentedOffice> {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(
-            child: Text('${snapshot.error}'),
+            child: Text('No reservations currently made'),
           );
         } else {
           return ListView(
@@ -82,7 +80,7 @@ class _RentedOfficeState extends State<RentedOffice> {
 
   Future<List<mdlRentedOffice>> GetRentedOffices() async {
     fetchUser();
-    var rentedoffices = await APIService.GetListById('RentedOffice/user',1);
+    var rentedoffices = await APIService.GetListById('RentedOffice/user',loggedUser.userId);
     return rentedoffices!.map((i) => mdlRentedOffice.fromJson(i)).toList();
   }
 }

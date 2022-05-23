@@ -32,14 +32,14 @@ namespace MeetAndGo.Services
             return _mapper.Map<IEnumerable<Model.User>>(entities);
         }
 
-        public async Task<Model.User> GetUserByUserAccountId(int id)
+        public async Task<IEnumerable<Model.SearchObject.UserUsernameSearchObject>> GetUserByUserAccountUsername(string username)
         {
-            var entity = await _dbContext.User.Where(x => x.UserAccountId == id).FirstOrDefaultAsync();
+            var entity = await _dbContext.User.Include("UserAccount").Where(x => x.UserAccount.Username == username).ToListAsync();
 
             if (entity == null)
                 return null;
 
-            return _mapper.Map<Model.User>(entity);
+            return _mapper.Map< IEnumerable<Model.SearchObject.UserUsernameSearchObject>>(entity);
         }
     }
 }

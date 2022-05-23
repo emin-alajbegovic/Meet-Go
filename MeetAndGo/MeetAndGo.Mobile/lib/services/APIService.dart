@@ -123,7 +123,7 @@ class APIService {
   }
 
   // ignore: non_constant_identifier_names
-  static Future<dynamic> GetByUsername(String route, String username) async {
+  static Future<List<dynamic>?> GetByUsername(String route, String username) async {
     String baseUrl = "http://10.0.2.2:5001/api/" + route + "/Username/" + username;
     final String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));

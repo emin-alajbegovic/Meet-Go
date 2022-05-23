@@ -1,53 +1,53 @@
 import 'dart:convert';
 
-class mdlRentedOffice {
-  final int rentedOfficeId;
-  final int officeId;
+class mdlRentedBuilding {
+  final int rentedBuildingId;
+  final int buildingId;
   final int userId;
   final String beginRentalDate;
   final String endRentalDate;
   final bool rented;
-  final String office;
+  final String building;
   final String firstName;
   final String lastName;
   final int days;
-  final int officePrice;
   final double price;
+  final int buildingPrice;
   final String address;
   final List<int> picture;
 
-  mdlRentedOffice({
-    required this.rentedOfficeId,
-    required this.officeId,
+  mdlRentedBuilding({
+    required this.rentedBuildingId,
+    required this.buildingId,
     required this.userId,
     required this.beginRentalDate,
     required this.endRentalDate,
     required this.rented,
-    required this.office,
+    required this.building,
     required this.firstName,
     required this.lastName,
     required this.days,
-    required this.officePrice,
+    required this.buildingPrice,
     required this.price,
     required this.address,
     required this.picture,
   });
 
-  factory mdlRentedOffice.fromJson(Map<String, dynamic> json) {
+  factory mdlRentedBuilding.fromJson(Map<String, dynamic> json) {
     String stringByte = json["picture"] as String;
     List<int> bytes = base64.decode(stringByte);
-    return mdlRentedOffice(
-      rentedOfficeId: int.parse(json["rentedOfficeId"].toString()),
-      officeId: int.parse(json["officeId"].toString()),
+    return mdlRentedBuilding(
+      rentedBuildingId: int.parse(json["rentedBuildingId"].toString()),
+      buildingId: int.parse(json["buildingId"].toString()),
       userId: int.parse(json["userId"].toString()),
       beginRentalDate: DateTime.parse(json["beginRentalDate"]).toString(),
       endRentalDate: DateTime.parse(json["endRentalDate"]).toString(),
       rented: json["rented"],
-      office: json["office"],
+      building: json["building"],
       firstName: json["firstname"],
       lastName: json["lastName"],
       days: json["days"],
-      officePrice: json["officePrice"],
+      buildingPrice: json["buildingPrice"],
       price: json["price"],
       address: json["adress"],
       picture: bytes,

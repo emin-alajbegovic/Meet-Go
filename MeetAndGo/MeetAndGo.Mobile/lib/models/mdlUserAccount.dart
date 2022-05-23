@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-
 class mdlUserAccount {
-  final int userAccountId;
+  final int userId;
   final String username;
 
   mdlUserAccount({
-    required this.userAccountId,
+    required this.userId,
     required this.username,
   });
 
   factory mdlUserAccount.fromJson(Map<String, dynamic> json) {
     return mdlUserAccount(
-      userAccountId: json["userAccountId"],
+      userId: json["userId"],
       username: json["username"],
     );
   }

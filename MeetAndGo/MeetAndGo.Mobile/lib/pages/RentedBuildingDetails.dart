@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/models/mdlCity.dart';
+import 'package:meet_go_mobile/models/mdlRentedBuilding.dart';
 import 'package:meet_go_mobile/models/mdlTypeOfOffice.dart';
 import 'package:meet_go_mobile/services/APIService.dart';
 import 'dart:typed_data';
 
 import '../models/mdlRentedOffice.dart';
 
-class RentedOfficeDetails extends StatelessWidget {
-  final mdlRentedOffice product;
+class RentedBuildingDetails extends StatelessWidget {
+  final mdlRentedBuilding product;
 
-  const RentedOfficeDetails({Key? key, required this.product})
+  const RentedBuildingDetails({Key? key, required this.product})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Rented office details'),
+          title: Text('Rented building details'),
         ),
         body: Main(dynamic, dynamic));
   }
@@ -32,7 +33,7 @@ class RentedOfficeDetails extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            product.office,
+            product.building,
             style: TextStyle(color: Colors.black, fontSize: 23),
           ),
         ),
