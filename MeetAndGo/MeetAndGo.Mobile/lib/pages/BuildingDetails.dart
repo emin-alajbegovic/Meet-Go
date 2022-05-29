@@ -3,12 +3,22 @@ import 'package:meet_go_mobile/models/mdlBuilding.dart';
 import 'package:meet_go_mobile/models/mdlCity.dart';
 import 'package:meet_go_mobile/models/mdlTypeOfBuilding.dart';
 import 'package:meet_go_mobile/services/APIService.dart';
+import 'package:meet_go_mobile/models/mdlUserAccount.dart';
+import 'dart:async';
 import 'dart:typed_data';
+
+final beginRentalDate = DateTime.utc(1989, DateTime.november, 9);
+final endRentalDate = DateTime.utc(1944, DateTime.june, 6);
+
+final difference = endRentalDate.difference(beginRentalDate);
 
 class BuildingDetails extends StatelessWidget {
   final mdlBuilding product;
 
+  var loggedUser;
+
   Future<mdlCity> fetchCity() async {
+    print(difference.inDays);
     var city = await APIService.GetById('City', product.cityId);
     mdlCity model = mdlCity.fromJson(city);
     return model;
@@ -21,7 +31,23 @@ class BuildingDetails extends StatelessWidget {
     return model;
   }
 
-  const BuildingDetails({Key? key, required this.product}) : super(key: key);
+  void payWithCard() async {
+    var user = await APIService.GetByUsername('User', APIService.username );
+    loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
+
+    Map<String, dynamic> queryParams = {
+      'buildingId': product.buildingId,
+      'userId': loggedUser.userId,
+      'beginRentalDate': '2022-05-25T17:03:01.645Z',
+      'endRentalDate': '2023-05-25T17:03:01.645Z',
+      'rented': true,
+      'days': difference.inDays,
+      'price': product.price
+    };
+    var result = await APIService.Post('RentedBuilding', queryParams);
+  }
+
+  BuildingDetails({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +59,7 @@ class BuildingDetails extends StatelessWidget {
   }
 
   Widget Main(widget, BuildContext context) {
+
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Column(children: [
@@ -73,29 +100,72 @@ class BuildingDetails extends StatelessWidget {
               color: Colors.green,
               onPressed: () {
                 showDialog(
-                  context: context,
-                  builder:(BuildContext context)=>AlertDialog(
-                    title: Text('Rent Building'),
-                    content: SingleChildScrollView(
-                      child: ListBody(
-                        children: const <Widget>[
-                          Text('This is a demo alert dialog.'),
-                          Text('Would you like to approve of this message?'),
-                        ],
-                      ),
-                    ),
-                    actions: [
-                      TextButton(
-                        child:Text('Cancel'),
-                        onPressed: ()=>Navigator.pop(context),
-                      ),
-                      TextButton(
-                        child:Text('Pay with card'),
-                        onPressed: ()=>Navigator.pop(context),
-                      )
-                    ],
-                  )
-                );
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          title: Text('Rent Building'),
+                          content: SingleChildScrollView(
+                            child: ListBody(
+                              children: const <Widget>[
+                              ],
+                            ),
+                          ),
+                          actions: [
+                            Text(
+                              'Price per day: ' + product.price.toString() + '' + '€',
+                              style: TextStyle(
+                                  color: Colors.lightGreen.withOpacity(1.0),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '${beginRentalDate.year}/${beginRentalDate.month}/${beginRentalDate.day}',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            ElevatedButton(
+                              child: Text('Select begin date'),
+                              onPressed: () async {
+                                DateTime? newBeginRentalDate =
+                                    await showDatePicker(
+                                        context: context,
+                                        initialDate: beginRentalDate,
+                                        firstDate: DateTime(1900),
+                                        lastDate: DateTime(2100));
+                                if (newBeginRentalDate == null) return;
+                              },
+                            ),
+                            Text(
+                              '${endRentalDate.year}/${endRentalDate.month}/${endRentalDate.day}',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            ElevatedButton(
+                              child: Text('Select end date'),
+                              onPressed: () async {
+                                DateTime? newEndRentalDate =
+                                    await showDatePicker(
+                                        context: context,
+                                        initialDate: endRentalDate,
+                                        firstDate: DateTime(1900),
+                                        lastDate: DateTime(2100));
+                                if (newEndRentalDate == null) return;
+                              },
+                            ),
+                            Text(
+                              'Total price: ' + product.price.toString() + '€',
+                              style: TextStyle(
+                                  color: Colors.lightBlue.withOpacity(1.0),
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            TextButton(
+                              child: Text('Cancel'),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                            TextButton(
+                              child: Text('Pay with card'),
+                              onPressed: () => payWithCard(),
+                            ),
+                          ],
+                        ));
               },
             ),
           ],
