@@ -12,7 +12,8 @@ import 'package:meet_go_mobile/pages/RentedOffice.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey =
-      'pk_test_51KxzekCJzjFO4SESz11VLHQh49MqV5yruUuYndpkfRcXzvpbxMaKAMLEniDdYjpRi4xULN68Jc9qV2bVKRZwUv8W00bPhU3tYe';
+  'pk_test_51KxzekCJzjFO4SESz11VLHQh49MqV5yruUuYndpkfRcXzvpbxMaKAMLEniDdYjpRi4xULN68Jc9qV2bVKRZwUv8W00bPhU3tYe';
+  await Stripe.instance.applySettings();
   runApp(MyApp());
 }
 

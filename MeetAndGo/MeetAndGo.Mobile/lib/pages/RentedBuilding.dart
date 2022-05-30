@@ -17,6 +17,13 @@ var loggedUser;
 void fetchUser() async {
   var user = await APIService.GetByUsername('User', APIService.username );
   loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
+  print(loggedUser.userId);
+}
+
+Future<List<mdlRentedBuilding>> GetRentedBuildings() async {
+  fetchUser();
+  var rentedbuildings = await APIService.GetListById('RentedBuilding/user',loggedUser.userId);
+  return rentedbuildings!.map((i) => mdlRentedBuilding.fromJson(i)).toList();
 }
 
 class _RentedBuildingState extends State<RentedBuilding> {
@@ -24,25 +31,21 @@ class _RentedBuildingState extends State<RentedBuilding> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Rented buildings')),
-      body: bodyWidget(),
-    );
-  }
-
-  Widget bodyWidget() {
-    return FutureBuilder<List<mdlRentedBuilding>>(
-      future: GetRentedBuildings(),
-      builder: (BuildContext context, AsyncSnapshot<List<mdlRentedBuilding>> snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(
-            child: Text('No reservations currently made'),
-          );
-        } else {
-          return ListView(
-              children: snapshot.data!.map((e) => RentedBuildingWidget(e)).toList());
-        }
-      },
+      body: FutureBuilder<List<mdlRentedBuilding>>(
+        future: GetRentedBuildings(),
+        builder: (BuildContext context, AsyncSnapshot<List<mdlRentedBuilding>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('No reservations currently made'),
+            );
+          } else {
+            return ListView(
+                children: snapshot.data!.map((e) => RentedBuildingWidget(e)).toList());
+          }
+        },
+      ),
     );
   }
 
@@ -77,11 +80,5 @@ class _RentedBuildingState extends State<RentedBuilding> {
         ),
       ),
     );
-  }
-
-  Future<List<mdlRentedBuilding>> GetRentedBuildings() async {
-    fetchUser();
-    var rentedbuildings = await APIService.GetListById('RentedBuilding/user',loggedUser.userId);
-    return rentedbuildings!.map((i) => mdlRentedBuilding.fromJson(i)).toList();
   }
 }

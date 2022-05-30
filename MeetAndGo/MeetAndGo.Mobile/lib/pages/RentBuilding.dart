@@ -44,6 +44,9 @@ class _RentBuildingState extends State<RentBuilding> {
     var dateDiff=getDataDiffence(beginRentalDate, endRentalDate);
     var sumController=dateDiff*widget.product.price;
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Rent building'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

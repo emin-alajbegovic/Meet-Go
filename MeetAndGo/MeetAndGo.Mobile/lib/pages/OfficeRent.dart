@@ -4,25 +4,41 @@ import 'package:get/get.dart';
 import 'package:meet_go_mobile/services/Payment.dart';
 
 class OfficeRent extends StatelessWidget {
+  const OfficeRent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final PaymentController controller = Get.put(PaymentController());
     return Scaffold(
-      appBar: AppBar(),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CardField(
-            onCardChanged: (card) {
-              print(card);
+          InkWell(
+            onTap: () {
+              controller.makePayment(amount: '5', currency: 'USD');
             },
-          ),
-          TextButton(
-            onPressed: () async {
-              // create payment method
-              final paymentMethod =
-              await Stripe.instance.createPaymentMethod(PaymentMethodParams.card());
-            },
-            child: Text('pay'),
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 10,
+                      offset: Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Make Payment',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
           )
         ],
       ),

@@ -34,7 +34,6 @@ class PaymentController extends GetxController {
     try {
       print('ovdje sam');
       await Stripe.instance.presentPaymentSheet();
-      print('sve dobro');
       Get.snackbar('Payment', 'Payment Successful',
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.green,
