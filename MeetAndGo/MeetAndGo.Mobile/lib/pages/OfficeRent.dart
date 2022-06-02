@@ -1,47 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:get/get.dart';
-import 'package:meet_go_mobile/services/Payment.dart';
+import 'package:pay/pay.dart';
 
-class OfficeRent extends StatelessWidget {
+const _paymentItems = [
+  PaymentItem(
+    label: 'Total',
+    amount: '99.99',
+    status: PaymentItemStatus.final_price,
+  )
+];
+
+class OfficeRent extends StatefulWidget {
   const OfficeRent({Key? key}) : super(key: key);
 
   @override
+  State<OfficeRent> createState() => _OfficeRentState();
+}
+
+class _OfficeRentState extends State<OfficeRent> {
+  void onGooglePayResult(paymentResult) {
+    debugPrint(paymentResult.toString());
+  }
+
+  void onApplePayResult(paymentResult) {
+    debugPrint(paymentResult.toString());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final PaymentController controller = Get.put(PaymentController());
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          InkWell(
-            onTap: () {
-              controller.makePayment(amount: '5', currency: 'USD');
-            },
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      offset: Offset(0, 10),
-                    ),
-                  ],
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Make Payment',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+        appBar: AppBar(
+          title: const Text('T-shirt Shop'),
+        ),
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Hello World'),
+              GooglePayButton(
+                paymentConfigurationAsset:
+                'gpay.json',
+                paymentItems: _paymentItems,
+                style: GooglePayButtonStyle.black,
+                type: GooglePayButtonType.pay,
+                margin: const EdgeInsets.only(top: 15.0),
+                onPaymentResult: onGooglePayResult,
+                loadingIndicator: const Center(
+                  child: CircularProgressIndicator(),
                 ),
               ),
-            ),
-          )
-        ],
-      ),
+              Text('Hello World'),
+            ],
+          ),
+        ),
     );
   }
 }

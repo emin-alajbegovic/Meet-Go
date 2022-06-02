@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/models/mdlUserAccount.dart';
+import 'package:meet_go_mobile/pages/BuildingDetails.dart';
 
 import '../models/mdlBuilding.dart';
 import '../services/APIService.dart';
+import '../services/Payment.dart';
 
 class RentBuilding extends StatefulWidget {
   final mdlBuilding product;
@@ -13,36 +15,79 @@ class RentBuilding extends StatefulWidget {
   @override
   State<RentBuilding> createState() => _RentBuildingState();
 }
+
 var loggedUser;
-
-void payWithCard() async {
-  var user = await APIService.GetByUsername('User', APIService.username);
-  loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
-
-  Map<String, dynamic> queryParams = {
-    'buildingId': 2,
-    'userId': loggedUser.userId,
-    'beginRentalDate': '2022-05-25T17:03:01.645Z',
-    'endRentalDate': '2023-05-25T17:03:01.645Z',
-    'rented': true,
-    'days': 2,
-    'price': 22
-  };
-  var result = await APIService.Post('RentedBuilding', queryParams);
-}
 
 int getDataDiffence(DateTime begin, DateTime end) {
   var difference = end.difference(begin);
   return difference.inDays;
 }
+
 var beginRentalDate = DateTime(2022, 6, 5);
 var endRentalDate = DateTime(2022, 8, 8);
 
 class _RentBuildingState extends State<RentBuilding> {
   @override
   Widget build(BuildContext context) {
-    var dateDiff=getDataDiffence(beginRentalDate, endRentalDate);
-    var sumController=dateDiff*widget.product.price;
+    var dateDiff = getDataDiffence(beginRentalDate, endRentalDate);
+    var sumController = dateDiff * widget.product.price;
+
+    void payWithCard({required int amount}) async {
+      var user = await APIService.GetByUsername('User', APIService.username);
+      loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
+      var response = await StripeService.payWithNewCard(
+          amount: amount.toString(), currency: 'BAM');
+      final snackBar;
+      if (response.message == 'Transaction cancelled') {
+        snackBar = SnackBar(
+          duration:
+              Duration(milliseconds: response.success == false ? 1200 : 3000),
+          content: Text(response.success == true
+              ? response.message
+              : 'Transaction canceled'),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Row(
+              children: [
+                CircularProgressIndicator(),
+                Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Text("Please wait...")),
+              ],
+            ),
+            duration: Duration(seconds: 5),
+          ),
+        );
+        snackBar = SnackBar(
+          duration:
+              Duration(milliseconds: response.success == false ? 1200 : 3000),
+          content: Text(response.success == true
+              ? response.message
+              : 'Transaction done'),
+        );
+        Map<String, dynamic> queryParams = {
+          'buildingId': 2,
+          'userId': loggedUser.userId,
+          'beginRentalDate': '2022-06-02T21:59:51.891',
+          'endRentalDate': '2022-08-02T21:59:51.891',
+          'rented': true,
+          'days': dateDiff,
+          'price': amount
+        };
+        print(queryParams);
+        var result = await APIService.Post('RentedBuilding', queryParams);
+      }
+      Navigator.of(context)
+          .pushReplacementNamed('/home');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('Building rented!')),
+      );
+    }
+
+    StripeService.init();
     return Scaffold(
       appBar: AppBar(
         title: Text('Rent building'),
@@ -52,9 +97,7 @@ class _RentBuildingState extends State<RentBuilding> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Price per day: ' +
-                  widget.product.price.toString() +
-                  '€',
+              'Price per day: ' + widget.product.price.toString() + '€',
               style: TextStyle(
                   color: Colors.lightGreen.withOpacity(1.0),
                   fontSize: 17,
@@ -67,16 +110,14 @@ class _RentBuildingState extends State<RentBuilding> {
             ElevatedButton(
                 child: Text('Select begin date'),
                 onPressed: () async {
-                  DateTime? newBeginRentalDate =
-                  await showDatePicker(
+                  DateTime? newBeginRentalDate = await showDatePicker(
                       context: context,
                       initialDate: beginRentalDate,
                       firstDate: DateTime(1900),
                       lastDate: DateTime(2100));
                   if (newBeginRentalDate == null) return;
 
-                  setState(() =>
-                  beginRentalDate = newBeginRentalDate);
+                  setState(() => beginRentalDate = newBeginRentalDate);
                   print(beginRentalDate);
                 }),
             Text(
@@ -86,16 +127,14 @@ class _RentBuildingState extends State<RentBuilding> {
             ElevatedButton(
               child: Text('Select end date'),
               onPressed: () async {
-                DateTime? newEndRentalDate =
-                await showDatePicker(
+                DateTime? newEndRentalDate = await showDatePicker(
                     context: context,
                     initialDate: endRentalDate,
                     firstDate: DateTime(1900),
                     lastDate: DateTime(2100));
                 if (newEndRentalDate == null) return;
 
-                setState(
-                        () => endRentalDate = newEndRentalDate);
+                setState(() => endRentalDate = newEndRentalDate);
                 print(endRentalDate);
                 print(sumController);
               },
@@ -113,7 +152,10 @@ class _RentBuildingState extends State<RentBuilding> {
             ),
             TextButton(
               child: Text('Pay with card'),
-              onPressed: () => payWithCard(),
+              onPressed: () {
+                Navigator.of(context).pop();
+                payWithCard(amount: sumController);
+              },
             ),
           ],
         ),

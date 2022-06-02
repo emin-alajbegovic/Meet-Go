@@ -1,80 +1,85 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:get/get.dart';
+
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:stripe_payment/stripe_payment.dart';
 
-class PaymentController extends GetxController {
-  Map<String, dynamic>? paymentIntentData;
 
-  Future<void> makePayment(
-      {required String amount, required String currency}) async {
-    try {
-      paymentIntentData = await createPaymentIntent(amount, currency);
-      if (paymentIntentData != null) {
-        await Stripe.instance.initPaymentSheet(
-            paymentSheetParameters: SetupPaymentSheetParameters(
-          applePay: true,
-          googlePay: true,
-          testEnv: true,
-          merchantCountryCode: 'US',
-          merchantDisplayName: 'Prospects',
-          customerId: paymentIntentData!['customer'],
-          paymentIntentClientSecret: paymentIntentData!['client_secret'],
-          customerEphemeralKeySecret: paymentIntentData!['ephemeralKey'],
-        ));
-        displayPaymentSheet();
-      }
-    } catch (e, s) {
-      print('exception:$e$s');
-    }
+class StripeTransactionResponse{
+  String message;
+  bool success;
+  StripeTransactionResponse({required this.message,required this.success});
+}
+
+class StripeService {
+  static String apiBase = 'https://api.stripe.com/v1';
+  static String paymentApiUrl = '${StripeService.apiBase}/charges';
+  static Uri paymentApiUri = Uri.parse(paymentApiUrl);
+  static String secret = 'sk_test_51KxzekCJzjFO4SESVTjqWwjiimOfBcDBnztD8xjAyEUJ9ByIAh0H3ixyS2PgmB937QVlm5PgCtSFQIGZ8dRwceQ500IdjNsQ6v';
+
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer ${StripeService.secret}',
+    'Content-type': 'application/x-www-form-urlencoded'
+  };
+
+  static init() {
+    StripePayment.setOptions(StripeOptions(
+        publishableKey: 'pk_test_51KxzekCJzjFO4SESz11VLHQh49MqV5yruUuYndpkfRcXzvpbxMaKAMLEniDdYjpRi4xULN68Jc9qV2bVKRZwUv8W00bPhU3tYe',
+        merchantId: 'test', androidPayMode: 'test'));
   }
 
-  displayPaymentSheet() async {
-    try {
-      print('ovdje sam');
-      await Stripe.instance.presentPaymentSheet();
-      Get.snackbar('Payment', 'Payment Successful',
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
-          margin: const EdgeInsets.all(10),
-          duration: const Duration(seconds: 2));
-    } on Exception catch (e) {
-      if (e is StripeException) {
-        print("Error from Stripe: ${e.error.localizedMessage}");
-      } else {
-        print("Unforeseen error: ${e}");
-      }
-    } catch (e) {
-      print("exception:$e");
-    }
-  }
-
-  //  Future<Map<String, dynamic>>
-  createPaymentIntent(String amount, String currency) async {
+  static Future<Map<String, dynamic>?> createPaymentIntent(String amount,
+      String currency) async {
     try {
       Map<String, dynamic> body = {
-        'amount': calculateAmount(amount),
-        'currency': currency,
-        'payment_method_types[]': 'card'
+        "amount": amount,
+        "currency": currency,
+        "description" : 'Renting',
+        "source" : "tok_mastercard"
       };
       var response = await http.post(
-          Uri.parse('https://api.stripe.com/v1/payment_intents'),
-          body: body,
-          headers: {
-            'Authorization':
-                'sk_test_51KxzekCJzjFO4SESVTjqWwjiimOfBcDBnztD8xjAyEUJ9ByIAh0H3ixyS2PgmB937QVlm5PgCtSFQIGZ8dRwceQ500IdjNsQ6v',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          });
+          paymentApiUri, headers: headers, body: body);
       return jsonDecode(response.body);
-    } catch (err) {
-      print('err charging user: ${err.toString()}');
+    }
+    catch (error) {
+      print('error occured in the payment intent $error');
+    }
+    return null;
+  }
+
+  static Future<StripeTransactionResponse> payWithNewCard(
+      {required String amount, required String currency}) async {
+    try {
+      var paymentMethod = await StripePayment.paymentRequestWithCardForm(
+          CardFormPaymentRequest());
+      var paymentIntent =
+      await StripeService.createPaymentIntent(amount, currency);
+      var response = await StripePayment.confirmPaymentIntent(PaymentIntent(
+          clientSecret: paymentIntent!['client_secret'],
+          paymentMethodId: paymentMethod.id));
+      print(response.toJson());
+      if (response.status == 'succeeded') {
+        return StripeTransactionResponse(
+            message: 'Transaction successful', success: true);
+      }
+      else {
+        return StripeTransactionResponse(
+            message: 'Transaction failed', success: false);
+      }
+    } on PlatformException catch (error) {
+      return StripeService.getPlatformExceptionErrorResult(error);
+    }
+    catch (error) {
+      return StripeTransactionResponse(
+          message: 'Transaction failed : $error', success: false);
     }
   }
 
-  calculateAmount(String amount) {
-    final a = (int.parse(amount)) * 100;
-    return a.toString();
+  static getPlatformExceptionErrorResult(err) {
+    String message = 'Something went wrong';
+    if (err.code == 'cancelled') {
+      message = 'Transaction cancelled';
+    }
+    return new StripeTransactionResponse(message: message, success: false);
   }
 }

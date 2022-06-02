@@ -14,14 +14,10 @@ class RentedBuilding extends StatefulWidget {
 
 var loggedUser;
 
-void fetchUser() async {
-  var user = await APIService.GetByUsername('User', APIService.username );
-  loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
-  print(loggedUser.userId);
-}
-
 Future<List<mdlRentedBuilding>> GetRentedBuildings() async {
-  fetchUser();
+  var user = await APIService.GetByUsername('User', APIService.username);
+  loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
+
   var rentedbuildings = await APIService.GetListById('RentedBuilding/user',loggedUser.userId);
   return rentedbuildings!.map((i) => mdlRentedBuilding.fromJson(i)).toList();
 }
