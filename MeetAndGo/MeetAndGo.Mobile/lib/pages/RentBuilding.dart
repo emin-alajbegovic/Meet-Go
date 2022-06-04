@@ -37,6 +37,7 @@ class _RentBuildingState extends State<RentBuilding> {
       loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
       var response = await StripeService.payWithNewCard(
           amount: amount.toString(), currency: 'BAM');
+      print(response.message);
       final snackBar;
       if (response.message == 'Transaction cancelled') {
         snackBar = SnackBar(
@@ -68,7 +69,7 @@ class _RentBuildingState extends State<RentBuilding> {
               : 'Transaction done'),
         );
         Map<String, dynamic> queryParams = {
-          'buildingId': 2,
+          'buildingId': widget.product.buildingId,
           'userId': loggedUser.userId,
           'beginRentalDate': '2022-06-02T21:59:51.891',
           'endRentalDate': '2022-08-02T21:59:51.891',
@@ -153,7 +154,6 @@ class _RentBuildingState extends State<RentBuilding> {
             TextButton(
               child: Text('Pay with card'),
               onPressed: () {
-                Navigator.of(context).pop();
                 payWithCard(amount: sumController);
               },
             ),

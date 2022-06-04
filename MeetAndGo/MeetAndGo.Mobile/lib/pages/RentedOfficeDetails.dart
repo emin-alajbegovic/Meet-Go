@@ -101,40 +101,6 @@ class RentedOfficeDetails extends StatelessWidget {
                 ),
               ],
             ),
-            TableRow(children: [
-              Text(
-                'Begin rental date',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                'End rental date',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                textAlign: TextAlign.center,
-              ),
-            ]),
-            TableRow(children: [
-              Padding(
-                child: Text(
-                  product.beginRentalDate.toString(),
-                  style: TextStyle(
-                      color: Colors.lightGreen,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
-                ),
-                padding: EdgeInsets.fromLTRB(55, 10, 10, 10),
-              ),
-              Padding(
-                child: Text(
-                  product.endRentalDate.toString(),
-                  style: TextStyle(
-                      color: Colors.lightGreen,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
-                ),
-                padding: EdgeInsets.fromLTRB(55, 10, 10, 10),
-              ),
-            ]),
           ],
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/models/mdlOffice.dart';
 import 'package:meet_go_mobile/models/mdlUserAccount.dart';
 import '../services/APIService.dart';
+import '../services/Payment.dart';
 
 class RentOffice extends StatefulWidget {
   final mdlOffice product;
@@ -14,22 +15,6 @@ class RentOffice extends StatefulWidget {
 }
 
 var loggedUser;
-
-void payWithCard() async {
-  var user = await APIService.GetByUsername('User', APIService.username);
-  loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
-
-  Map<String, dynamic> queryParams = {
-    'officeId': 2,
-    'userId': loggedUser.userId,
-    'beginRentalDate': '2022-05-25T17:03:01.645Z',
-    'endRentalDate': '2023-05-25T17:03:01.645Z',
-    'rented': true,
-    'days': 2,
-    'price': 22
-  };
-  var result = await APIService.Post('RentedOffice', queryParams);
-}
 
 int getDataDiffence(DateTime begin, DateTime end) {
   var difference = end.difference(begin);
@@ -43,6 +28,65 @@ class _RentOfficeState extends State<RentOffice> {
   Widget build(BuildContext context) {
     var dateDiff=getDataDiffence(beginRentalDate, endRentalDate);
     var sumController=dateDiff*widget.product.price;
+
+    void payWithCard({required int amount}) async {
+      var user = await APIService.GetByUsername('User', APIService.username);
+      loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
+      var response = await StripeService.payWithNewCard(
+          amount: amount.toString(), currency: 'BAM');
+      print(response.message);
+      final snackBar;
+      if (response.message == 'Transaction cancelled') {
+        snackBar = SnackBar(
+          duration:
+          Duration(milliseconds: response.success == false ? 1200 : 3000),
+          content: Text(response.success == true
+              ? response.message
+              : 'Transaction canceled'),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Row(
+              children: [
+                CircularProgressIndicator(),
+                Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Text("Please wait...")),
+              ],
+            ),
+            duration: Duration(seconds: 5),
+          ),
+        );
+        snackBar = SnackBar(
+          duration:
+          Duration(milliseconds: response.success == false ? 1200 : 3000),
+          content: Text(response.success == true
+              ? response.message
+              : 'Transaction done'),
+        );
+        Map<String, dynamic> queryParams = {
+          'officeId': widget.product.officeId,
+          'userId': loggedUser.userId,
+          'beginRentalDate': '2022-06-02T21:59:51.891',
+          'endRentalDate': '2022-08-02T21:59:51.891',
+          'rented': true,
+          'days': dateDiff,
+          'price': amount
+        };
+        print(queryParams);
+        var result = await APIService.Post('RentedOffice', queryParams);
+      }
+      Navigator.of(context)
+          .pushReplacementNamed('/home');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('Office rented!')),
+      );
+    }
+
+    StripeService.init();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Rent office'),
@@ -113,7 +157,9 @@ class _RentOfficeState extends State<RentOffice> {
             ),
             TextButton(
               child: Text('Pay with card'),
-              onPressed: () => payWithCard(),
+              onPressed: () {
+                payWithCard(amount: sumController);
+              },
             ),
           ],
         ),
