@@ -29,7 +29,7 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize]
         [HttpGet("user/{userId}")]
         public async Task<IEnumerable<Model.RentedBuilding>> GetAllRentedBuildingsByUserId(int userId)
         {
