@@ -1,5 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:meet_go_mobile/services/APIService.dart';
+
+import '../models/mdlBuilding.dart';
+import 'BuildingDetails.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -27,12 +32,6 @@ class _HomeState extends State<Home> {
                       fit: BoxFit.fitWidth,
                       image: AssetImage('assets/office2.jpg'))),
             ),
-            ListTile(
-                leading: Icon(Icons.location_city),
-                title: Text('Office rent'),
-                onTap: () {
-                  Navigator.of(context).popAndPushNamed('/officerent');
-                }),
             ListTile(
                 leading: Icon(Icons.location_city),
                 title: Text('Building'),
@@ -68,6 +67,62 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+      body: bodyWidget(),
     );
+  }
+  Widget bodyWidget() {
+    return FutureBuilder<List<mdlBuilding>>(
+      future: GetBuildings(),
+      builder: (BuildContext context, AsyncSnapshot<List<mdlBuilding>> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text('${snapshot.error}'),
+          );
+        } else {
+          return ListView(
+              children: snapshot.data!.map((e) => BuildingWidget(e)).toList());
+        }
+      },
+    );
+  }
+
+  Widget BuildingWidget(building) {
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: TextButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BuildingDetails(product: building)));
+        },
+        child: Column(
+          children: [
+            Padding(
+                padding: const EdgeInsets.all(13.5),
+                child: Image.memory(
+                  Uint8List.fromList(building.picture),
+                  fit: BoxFit.fill,
+                  height: 200,
+                  width: 250,
+                )),
+            Padding(
+              padding: const EdgeInsets.all(13.5),
+              child: Text(
+                building.name,
+                style: TextStyle(color: Colors.black.withOpacity(0.7),fontSize: 18),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<List<mdlBuilding>> GetBuildings() async {
+    var buildings = await APIService.Get('Building', null);
+    return buildings!.map((i) => mdlBuilding.fromJson(i)).toList();
   }
 }

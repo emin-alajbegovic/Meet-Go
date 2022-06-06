@@ -4,7 +4,6 @@ import 'package:meet_go_mobile/pages/Login.dart';
 import 'package:meet_go_mobile/pages/Loading.dart';
 import 'package:meet_go_mobile/pages/Office.dart';
 import 'package:meet_go_mobile/pages/Home.dart';
-import 'package:meet_go_mobile/pages/OfficeRent.dart';
 import 'package:meet_go_mobile/pages/RentedBuilding.dart';
 import 'package:meet_go_mobile/pages/RentedOffice.dart';
 
@@ -28,7 +27,6 @@ class _MyAppState extends State<MyApp> {
         '/home': (context) => Home(),
         '/loading': (context) => Loading(),
         '/office': (context) => Office(),
-        '/officerent': (context) => OfficeRent(),
         '/building': (context) => Building(),
         '/rentedoffice': (context) => RentedOffice(),
         '/rentedbuilding': (context) => RentedBuilding(),

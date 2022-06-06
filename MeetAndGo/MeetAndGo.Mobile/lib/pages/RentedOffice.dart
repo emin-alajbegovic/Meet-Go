@@ -78,7 +78,6 @@ class _RentedOfficeState extends State<RentedOffice> {
 
     var rentedoffices =
         await APIService.GetListById('RentedOffice/user', loggedUser.userId);
-    print(rentedoffices);
     return rentedoffices!.map((i) => mdlRentedOffice.fromJson(i)).toList();
   }
 }

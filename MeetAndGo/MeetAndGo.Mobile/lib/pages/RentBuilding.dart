@@ -37,7 +37,6 @@ class _RentBuildingState extends State<RentBuilding> {
       loggedUser = user!.map((e) => mdlUserAccount.fromJson(e)).first;
       var response = await StripeService.payWithNewCard(
           amount: amount.toString(), currency: 'BAM');
-      print(response.message);
       final snackBar;
       if (response.message == 'Transaction cancelled') {
         snackBar = SnackBar(
@@ -77,7 +76,6 @@ class _RentBuildingState extends State<RentBuilding> {
           'days': dateDiff,
           'price': amount
         };
-        print(queryParams);
         var result = await APIService.Post('RentedBuilding', queryParams);
       }
       Navigator.of(context)
@@ -119,7 +117,6 @@ class _RentBuildingState extends State<RentBuilding> {
                   if (newBeginRentalDate == null) return;
 
                   setState(() => beginRentalDate = newBeginRentalDate);
-                  print(beginRentalDate);
                 }),
             Text(
               '${endRentalDate.year}/${endRentalDate.month}/${endRentalDate.day}',
@@ -136,8 +133,6 @@ class _RentBuildingState extends State<RentBuilding> {
                 if (newEndRentalDate == null) return;
 
                 setState(() => endRentalDate = newEndRentalDate);
-                print(endRentalDate);
-                print(sumController);
               },
             ),
             Text(
