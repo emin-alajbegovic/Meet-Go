@@ -22,7 +22,7 @@ namespace MeetAndGo.Controllers
             return await _service.GetAllRentedOffices();
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize]
         [HttpGet("user/{userId}")]
         public async Task<IEnumerable<Model.RentedOffice>> GetAllRentedOfficesByUserId(int userId)
         {
@@ -34,6 +34,13 @@ namespace MeetAndGo.Controllers
         public Model.RentedOffice GetById(int id)
         {
             return _service.GetById(id);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public Model.RentedOffice Insert([FromBody] RentedOfficeRequest request)
+        {
+            return _service.Insert(request);
         }
 
         [Authorize(Roles = "Admin,SuperAdmin")]

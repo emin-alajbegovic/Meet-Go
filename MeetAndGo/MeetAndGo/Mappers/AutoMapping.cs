@@ -38,12 +38,17 @@ namespace MeetAndGo.Mappers
 
             CreateMap<Database.User, Model.User>()
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.UserAccount.Email));
+            CreateMap<Database.User, Model.SearchObject.UserUsernameSearchObject>()
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.UserAccount.Username));
             CreateMap<Database.UserAccount, Model.UserAccount>();
             CreateMap<Database.UserAccountRole, Model.UserAccountRole>();
             CreateMap<Database.Role, Model.Role>();
 
             CreateMap<OfficeUpsertRequest, Database.Office>();
             CreateMap<BuildingUpsertRequest, Database.Building>();
+            CreateMap<OfficeUpsertRequest, Database.Office>();
+            CreateMap<RentedOfficeRequest, Database.RentedOffice>();
+            CreateMap<RentedBuildingRequest, Database.RentedBuilding>();
             CreateMap<RentedOfficeUpdateRequest, Database.RentedOffice>();
             CreateMap<RentedBuildingUpdateRequest, Database.RentedBuilding>();
             CreateMap<UserUpsertRequest, Database.User>();

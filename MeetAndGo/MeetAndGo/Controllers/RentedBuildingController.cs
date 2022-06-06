@@ -29,11 +29,18 @@ namespace MeetAndGo.Controllers
             return _service.GetById(id);
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize]
         [HttpGet("user/{userId}")]
         public async Task<IEnumerable<Model.RentedBuilding>> GetAllRentedBuildingsByUserId(int userId)
         {
             return await _service.GetAllRentedBuildingsByUserId(userId);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public Model.RentedBuilding Insert([FromBody] RentedBuildingRequest request)
+        {
+            return _service.Insert(request);
         }
 
         [Authorize(Roles = "Admin,SuperAdmin")]
