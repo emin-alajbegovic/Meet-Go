@@ -2,7 +2,6 @@
     package="com.example.meet_go_mobile">
    <application
         android:label="meet_go_mobile"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
